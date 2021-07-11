@@ -1,0 +1,91 @@
+{
+  "ERROR_OWNER_NOTFOUND": "Propriétaire introuvable.",
+
+  "SET_ACTIVITY": "{{variable}}aide",
+  "SET_ACTIVITY_DEV": "Développement",
+
+  "COMMAND_LOADED": "Commande chargée : {{variable}}",
+  "COMMAND_RELOADED": "Commande rechargée : {{variable}}",
+  "COMMAND_UNLOADED": "Commande déchargée : {{variable}}",
+  "COMMAND_NOTLOADED": "Commande non chargée : {{variable}}",
+  "COMMAND_NOTFOUND": "Commande non trouvée : {{variable}}",
+  "ALL_COMMAND_UNLOADED": "Toutes les commandes ont été déchargées.",
+  "ALL_COMMAND_RELOADED": "Toutes les commandes ont été rechargées.",
+
+  "EVENT_LOADED": "Événement chargé : {{variable}}",
+  "MODULE_LOADED": "Module chargé : {{variable}}",
+  "MODULE_NOTLOADED": "Module non chargé : {{variable}}",
+
+  "READY_MESSAGE": "Prêt pour te servir :heart:",
+
+  "PERM_USER": "Utilisateur",
+  "PERM_MODERATOR": "Modérateur",
+  "PERM_ADMINISTRATOR": "Administrateur",
+  "PERM_SERVEROWNER": "Propriétaire du serveur",
+  "PERM_BOTSUPPORT": "Support du bot",
+  "PERM_BOTADMIN": "Administrateur du bot",
+  "PERM_BOTOWNER": "Propriétaire du bot",
+  "PERM_NOTICE": "Vous n'avez pas la permission d'utiliser cette commande.\nVotre niveau de permission est : {{permName}}\nCette commande nécessite le niveau : {{commandPermName}}",
+
+  "UNKNOWN_COMMAND": "Cette commande n'existe pas.",
+  "UNAVAILABLE_COMMAND": "Cette commande est indisponible en message direct.\nVeuillez exécuter cette commande dans un serveur.",
+  "UNAUTHORIZED_COMMAND": "Vous n'avez pas la permission d'utiliser cette commande.",
+  "COOLDOWN_COOLDOWN": "Plus que {{variable}}s avant de pouvoir utiliser cette commande.",
+
+  "USAGE": "Usage : `{{prefix}}{{usage}}`",
+
+  "HELP_PING_NAME": "Ping",
+  "HELP_PING_CATEGORY": "Autre",
+  "HELP_PING_DESCRIPTION": "C'est comme *ping*... *PONG* t'as reçu une réponse !",
+  "HELP_PING_USAGE": "ping",
+
+  "PING_WAIT": "Ping ?",
+  "PING_SEND": "Pong !",
+  "PONG_WAIT": "Pong ?",
+  "PONG_SEND": "Ping !",
+  "PING_LATENCY": "Latence Bot : ***{{botPing}}*** aaa *ms*\nLatence API : ***{{apiPing}}*** *ms*",
+  "PING_LOW": "*{{author}} rate la balle !* Je suis trop rapide ! {{emoji}}",
+  "PING_MEDIUM": "*Ce match est tendu !* {{author}} est un bon adversaire ! {{emoji}}",
+  "PING_HIGH": "*{{author}} m'a battu !* Bravo, excellent duel ! {{emoji}}",
+
+  "HELP_LC_NAME": "Charge Commande",
+  "HELP_LC_CATEGORY": "Admin",
+  "HELP_LC_DESCRIPTION": "Charge ou recharge une commande.",
+  "HELP_LC_USAGE": "loadcommand <command>",
+
+  "ERROR_LC_ARGUMENTS": "Besoin d'1 argument.",
+
+  "HELP_UC_NAME": "Décharge Commande",
+  "HELP_UC_CATEGORY": "Admin",
+  "HELP_UC_DESCRIPTION": "Décharge une commande.",
+  "HELP_UC_USAGE": "unloadcommand <command>",
+
+  "ERROR_UC_ARGUMENTS": "Besoin d'1 argument.",
+
+  "HELP_RC_NAME": "Recharge Commandes",
+  "HELP_RC_CATEGORY": "Admin",
+  "HELP_RC_DESCRIPTION": "Recharge toutes les commandes.",
+  "HELP_RC_USAGE": "reloadcommand",
+
+  "HELP_HELP_NAME": "Aide",
+  "HELP_HELP_CATEGORY": "Système",
+  "HELP_HELP_DESCRIPTION": "Affiche les commandes disponibles.",
+  "HELP_HELP_USAGE": "help",
+
+  "HELP_NO_TITLE": "Pas de page !",
+  "HELP_NO_DESCRIPTION": "Ah ! Il semblerait que le livre d'aide ne possède aucune page.",
+  "HELP_TITLE": "= Aide : {{variable}} =",
+  "HELP_FOOTER": "Page {{variable}}",
+
+  "HELP_STATS_NAME": "Stats",
+  "HELP_STATS_CATEGORY": "Système",
+  "HELP_STATS_DESCRIPTION": "Affiche les stats de Victini.",
+  "HELP_STATS_USAGE": "stats",
+
+  "STATS_MEMORY_USAGE": "Utilisation Mémoire :",
+  "STATS_UPTIME": "Durée de fonctionnement :",
+  "STATS_GUILDS": "Serveurs :",
+  "STATS_USERS": "Utilisateurs :",
+  "STATS_API_VERSION": "Discord.js :",
+  "STATS_NODE_VERSION": "Node.js :"
+}

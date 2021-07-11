@@ -1,0 +1,91 @@
+{
+  "ERROR_OWNER_NOTFOUND": "Owner not found.",
+
+  "SET_ACTIVITY": "{{variable}}help",
+  "SET_ACTIVITY_DEV": "Development",
+
+  "COMMAND_LOADED": "Loaded command: {{variable}}",
+  "COMMAND_RELOADED": "Reload command: {{variable}}",
+  "COMMAND_UNLOADED": "Unloaded command: {{variable}}",
+  "COMMAND_NOTLOADED": "Command not loaded: {{variable}}",
+  "COMMAND_NOTFOUND": "Command not found: {{variable}}",
+  "ALL_COMMAND_UNLOADED": "All commands unloaded.",
+  "ALL_COMMAND_RELOADED": "All commands reloaded.",
+
+  "EVENT_LOADED": "Event loaded: {{variable}}",
+  "MODULE_LOADED": "Module loaded: {{variable}}",
+  "MODULE_NOTLOADED": "Module not loaded: {{variable}}",
+
+  "READY_MESSAGE": "Ready to serve you :heart:",
+
+  "PERM_USER": "User",
+  "PERM_MODERATOR": "Moderator",
+  "PERM_ADMINISTRATOR": "Administrator",
+  "PERM_SERVEROWNER": "Server owner",
+  "PERM_BOTSUPPORT": "Bot support",
+  "PERM_BOTADMIN": "Bot admin",
+  "PERM_BOTOWNER": "Bot owner",
+  "PERM_NOTICE": "You do not have permission to use this command.\nYour permission level is: {{permName}}\nThis command requires the level: {{commandPermName}}",
+
+  "UNKNOWN_COMMAND": "This command does not exist.",
+  "UNAVAILABLE_COMMAND": "This command is unavailable in direct message.\nPlease use it in a guild.",
+  "UNAUTHORIZED_COMMAND": "You do not have permission to use this command.",
+  "COOLDOWN_COOLDOWN": "Still {{variable}}s before you can use this command.",
+
+  "USAGE": "Usage: `{{prefix}}{{usage}}`",
+  
+  "HELP_PING_NAME": "Ping",
+  "HELP_PING_CATEGORY": "Misc",
+  "HELP_PING_DESCRIPTION": "It's like *ping*... *PONG* you received a reply!",
+  "HELP_PING_USAGE": "ping",
+
+  "PING_WAIT": "Ping?",
+  "PING_SEND": "Pong!",
+  "PONG_WAIT": "Pong?",
+  "PONG_SEND": "Ping!",
+  "PING_LATENCY": "Bot Latency: ***{{botPing}}*** *ms*\nAPI Latency: ***{{apiPing}}*** *ms*",
+  "PING_LOW": "*{{author}} miss the ball! I am the best!*  {{emoji}}",
+  "PING_MEDIUM": "*It is a tense game!* {{author}} is a good opponent! {{emoji}}",
+  "PING_HIGH": "*{{author}} beat me!* Gratz, excellent duel! {{emoji}}",
+
+  "HELP_LC_NAME": "Load Command",
+  "HELP_LC_CATEGORY": "Admin",
+  "HELP_LC_DESCRIPTION": "Load or reload a specific command.",
+  "HELP_LC_USAGE": "loadcommand <command>",
+
+  "ERROR_LC_ARGUMENTS": "Need 1 argument.",
+
+  "HELP_UC_NAME": "Unload Command",
+  "HELP_UC_CATEGORY": "Admin",
+  "HELP_UC_DESCRIPTION": "Unload a specific command.",
+  "HELP_UC_USAGE": "unloadcommand <command>",
+
+  "ERROR_UC_ARGUMENTS": "Need 1 argument.",
+
+  "HELP_RC_NAME": "Reload Command",
+  "HELP_RC_CATEGORY": "Admin",
+  "HELP_RC_DESCRIPTION": "Reload all commands.",
+  "HELP_RC_USAGE": "reloadcommands",
+
+  "HELP_HELP_NAME": "Help",
+  "HELP_HELP_CATEGORY": "System",
+  "HELP_HELP_DESCRIPTION": "Display available commands.",
+  "HELP_HELP_USAGE": "help",
+
+  "HELP_NO_TITLE": "No page!",
+  "HELP_NO_DESCRIPTION": "Uh! Looks like there is no page in help book.",
+  "HELP_TITLE": "= Help: {{variable}} =",
+  "HELP_FOOTER": "Page {{variable}}",
+
+  "HELP_STATS_NAME": "Stats",
+  "HELP_STATS_CATEGORY": "System",
+  "HELP_STATS_DESCRIPTION": "Display Victini stats.",
+  "HELP_STATS_USAGE": "stats",
+
+  "STATS_MEMORY_USAGE": "Memory Usage:",
+  "STATS_UPTIME": "Uptime:",
+  "STATS_GUILDS": "Guilds:",
+  "STATS_USERS": "Users:",
+  "STATS_API_VERSION": "Discord.js:",
+  "STATS_NODE_VERSION": "Node.js:"
+}

@@ -1,0 +1,66 @@
+{
+  "VICTINI": {
+    "name": "✌️",
+    "text": ":v:"
+  },
+  "PING": {
+    "name": "🏓",
+    "text": ":ping_pong:"
+  },
+  "PREVIOUS": {
+    "name": "◀️",
+    "text": ":arrow_backward:"
+  },
+  "LAST_PREVIOUS": {
+    "name": "⏮️",
+    "text": ":track_previous:"
+  },
+  "NEXT": {
+    "name": "▶️",
+    "text": ":arrow_forward:"
+  },
+  "LAST_NEXT": {
+    "name": "⏭️",
+    "text": ":track_next:"
+  },
+  "ONE": {
+    "name": "1️⃣",
+    "text": ":one:"
+  },
+  "TWO": {
+    "name": "2️⃣",
+    "text": ":two:"
+  },
+  "THREE": {
+    "name": "3️⃣",
+    "text": ":three:"
+  },
+  "FOUR": {
+    "name": "4️⃣",
+    "text": ":four:"
+  },
+  "FIVE": {
+    "name": "5️⃣",
+    "text": ":five:"
+  },
+  "SIX": {
+    "name": "6️⃣",
+    "text": ":six:"
+  },
+  "SEVEN": {
+    "name": "7️⃣",
+    "text": ":seven:"
+  },
+  "EIGHT": {
+    "name": "8️⃣",
+    "text": ":eight:"
+  },
+  "NINE": {
+    "name": "9️⃣",
+    "text": ":nine:"
+  },
+  "TEN": {
+    "name": "🔟",
+    "text": ":keycap_ten:"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "victini",
+  "version": "2.0.0",
+  "description": "Victini Bot",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skario37/victini2.0.git"
+  },
+  "author": "Skario",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skario37/victini2.0/issues"
+  },
+  "homepage": "https://github.com/Skario37/victini2.0#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "moment": "^2.29.1"
+  }
+}

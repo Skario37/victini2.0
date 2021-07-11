@@ -1,0 +1,51 @@
+{
+  "OWNER" : {
+    "id": "142729481273081856",
+    "name": "Skario"
+  },
+
+  "ADMINS": [
+    {
+      "name": "Admin name",
+      "id": "Admin id"
+    }
+  ],
+
+  "SUPPORTS": [
+    {
+      "name": "Support name",
+      "id": "Support id"
+    }
+  ],
+
+  "DEFAULTSETTINGS": {
+    "prefix": "v.",
+    "systemNotice": "true",
+
+    "modRoleID": "564199961462439963",
+    "adminRoleID": "536317214056251392",
+
+    "logChannelID": "598583330719531115",
+    "logChannelEnabled": "false",
+
+    "welcomeChannelID": "536313473341063169",
+    "welcomeMessage": "Souhaitez un accueil chaleureux à {{user}} !",
+    "welcomeEnabled": "false",
+
+    "announceChannelID" : "536954645503934475",
+    "annouceEnabled" : "false",
+
+    "reportChannelID": "705954157403570257",
+    "reportEnabled": "false",
+
+    "embedColor": "#FFCC66",
+    "embedColorEnabled": "false",
+    "embedColorForced": "false",
+
+    "muteRoleID" : "706186120987148298",
+    "muteEnabled" : "false",
+
+    "language": "FR",
+    "languageForced": "false"
+  }
+}
