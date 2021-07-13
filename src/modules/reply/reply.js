@@ -59,7 +59,7 @@ const reply = (client, message) => {
   if (!reply) return;
 
   if (first !== reply) {
-    reply = reply.replace(first, "");
+    reply = reply.replace(first.toLowerCase(), "");
   }
 
   // detect case
