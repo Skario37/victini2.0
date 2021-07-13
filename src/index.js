@@ -1,4 +1,5 @@
 const Client = require("discord.js").Client;
+require('discord-reply');
 const Collection = require("discord.js").Collection;
 const dotenv = require("dotenv");
 const Loader = require("./utils/Loader");
@@ -16,7 +17,10 @@ dotenv.config();
         "GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES", "GUILD_PRESENCES", 
         "GUILD_MESSAGE_REACTIONS", "GUILD_MESSAGE_TYPING", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", 
         "DIRECT_MESSAGE_TYPING"
-      ] 
+      ]
+    },
+    allowedMentions: {
+      repliedUser: true
     }
   });
   client.env = process.env.NODE_ENV;

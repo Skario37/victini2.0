@@ -367,7 +367,7 @@ exports.loadModule = (client, message, settings, moduleName) => {
 exports.unloadModule = (client, message, settings, moduleName) => {
   if (client.modules.has(moduleName)) {
     const module = client.modules.get(moduleName);
-    module.unsubscribe();
+    module.unsubscribe(client);
 
     unloadCommandsFromModule(client, message, settings, module);
     

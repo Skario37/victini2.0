@@ -50,3 +50,9 @@ exports.bookingMessage = async (message, author, time, reactArray, events) => {
  * @returns Promise
  */
 exports.timer = ms => new Promise(res => setTimeout(res, ms));
+
+exports.isUpperCase = (str) => str === str.toUpperCase();
+exports.isLowerCase = (str) => str === str.toLowerCase();
+exports.isFirstCapitalization  = (str) => str[0] === str[0].toUpperCase();
+exports.isLastCapitalization = (str) => str[str.length-1] === str[str.length-1].toUpperCase();
+exports.capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
