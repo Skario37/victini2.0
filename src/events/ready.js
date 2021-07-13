@@ -1,6 +1,7 @@
 const i18n = require("../utils/i18n").i18n;
 const error = require("../utils/Logger").error;
 const Config = require("../config.json");
+const Loader = require("../utils/Loader");
 
 module.exports = (client) => {
   // Log that the bot is online.
@@ -25,4 +26,6 @@ module.exports = (client) => {
       i18n("SET_ACTIVITY_DEV", Config.DEFAULTSETTINGS.language), 
       {type: "PLAYING"});
   }
+
+  Loader.loadModules(client);
 };
