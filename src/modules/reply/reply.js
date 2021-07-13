@@ -9,6 +9,7 @@ let onMessage = null;
 const reply = (client, message) => {
   if (this.conf.unsubscribed) return;
   if (message.author.bot) return;
+  if (message.content === "") return;
 
   const settings = Config.DEFAULTSETTINGS;
 
