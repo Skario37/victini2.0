@@ -13,8 +13,14 @@
   "ALL_COMMAND_RELOADED": "All commands reloaded.",
 
   "EVENT_LOADED": "Event loaded: {{variable}}",
+
   "MODULE_LOADED": "Module loaded: {{variable}}",
+  "MODULE_RELOADED": "Module reloaded: {{variable}}",
+  "MODULE_UNLOADED": "Module unloaded: {{variable}}",
   "MODULE_NOTLOADED": "Module not loaded: {{variable}}",
+  "MODULE_NOTFOUND": "Module not found: {{variable}}",
+  "ALL_MODULE_UNLOADED": "All modules unloaded.",
+  "ALL_MODULE_RELOADED": "All modules reloaded.",
 
   "READY_MESSAGE": "Ready to serve you :heart:",
 
@@ -55,6 +61,13 @@
 
   "ERROR_LC_ARGUMENTS": "Need 1 argument.",
 
+  "HELP_LM_NAME": "Load Module",
+  "HELP_LM_CATEGORY": "Admin",
+  "HELP_LM_DESCRIPTION": "Load or reload a specific module.",
+  "HELP_LM_USAGE": "loadmodule <module>",
+
+  "ERROR_LM_ARGUMENTS": "Need 1 argument.",
+
   "HELP_UC_NAME": "Unload Command",
   "HELP_UC_CATEGORY": "Admin",
   "HELP_UC_DESCRIPTION": "Unload a specific command.",
@@ -62,10 +75,22 @@
 
   "ERROR_UC_ARGUMENTS": "Need 1 argument.",
 
-  "HELP_RC_NAME": "Reload Command",
+  "HELP_UM_NAME": "Unload Module",
+  "HELP_UM_CATEGORY": "Admin",
+  "HELP_UM_DESCRIPTION": "Unload a specific module.",
+  "HELP_UM_USAGE": "unloadmodule <module>",
+
+  "ERROR_UM_ARGUMENTS": "Need 1 argument.",
+
+  "HELP_RC_NAME": "Reload Commands",
   "HELP_RC_CATEGORY": "Admin",
   "HELP_RC_DESCRIPTION": "Reload all commands.",
   "HELP_RC_USAGE": "reloadcommands",
+
+  "HELP_RM_NAME": "Reload Modules",
+  "HELP_RM_CATEGORY": "Admin",
+  "HELP_RM_DESCRIPTION": "Reload all modules.",
+  "HELP_RM_USAGE": "reloadmodules",
 
   "HELP_HELP_NAME": "Help",
   "HELP_HELP_CATEGORY": "System",

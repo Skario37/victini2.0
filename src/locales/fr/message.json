@@ -13,8 +13,14 @@
   "ALL_COMMAND_RELOADED": "Toutes les commandes ont été rechargées.",
 
   "EVENT_LOADED": "Événement chargé : {{variable}}",
+
   "MODULE_LOADED": "Module chargé : {{variable}}",
+  "MODULE_RELOADED": "Module rechargé : {{variable}}",
+  "MODULE_UNLOADED": "Module déchargé : {{variable}}",
   "MODULE_NOTLOADED": "Module non chargé : {{variable}}",
+  "MODULE_NOTFOUND": "Module non trouvé : {{variable}}",
+  "ALL_MODULE_UNLOADED": "Tous les modules ont été déchargés.",
+  "ALL_MODULE_RELOADED": "Tous les modules ont été rechargés.",
 
   "READY_MESSAGE": "Prêt pour te servir :heart:",
 
@@ -43,7 +49,7 @@
   "PING_SEND": "Pong !",
   "PONG_WAIT": "Pong ?",
   "PONG_SEND": "Ping !",
-  "PING_LATENCY": "Latence Bot : ***{{botPing}}*** aaa *ms*\nLatence API : ***{{apiPing}}*** *ms*",
+  "PING_LATENCY": "Latence Bot : ***{{botPing}}*** *ms*\nLatence API : ***{{apiPing}}*** *ms*",
   "PING_LOW": "*{{author}} rate la balle !* Je suis trop rapide ! {{emoji}}",
   "PING_MEDIUM": "*Ce match est tendu !* {{author}} est un bon adversaire ! {{emoji}}",
   "PING_HIGH": "*{{author}} m'a battu !* Bravo, excellent duel ! {{emoji}}",
@@ -55,6 +61,13 @@
 
   "ERROR_LC_ARGUMENTS": "Besoin d'1 argument.",
 
+  "HELP_LM_NAME": "Charge Module",
+  "HELP_LM_CATEGORY": "Admin",
+  "HELP_LM_DESCRIPTION": "Charge ou recharge un module.",
+  "HELP_LM_USAGE": "loadmodule <module>",
+
+  "ERROR_LM_ARGUMENTS": "Besoin d'1 argument.",
+
   "HELP_UC_NAME": "Décharge Commande",
   "HELP_UC_CATEGORY": "Admin",
   "HELP_UC_DESCRIPTION": "Décharge une commande.",
@@ -62,10 +75,22 @@
 
   "ERROR_UC_ARGUMENTS": "Besoin d'1 argument.",
 
+  "HELP_UM_NAME": "Décharge Module",
+  "HELP_UM_CATEGORY": "Admin",
+  "HELP_UM_DESCRIPTION": "Décharge un module.",
+  "HELP_UM_USAGE": "unloadmodule <module>",
+
+  "ERROR_UM_ARGUMENTS": "Besoin d'1 argument.",
+
   "HELP_RC_NAME": "Recharge Commandes",
   "HELP_RC_CATEGORY": "Admin",
   "HELP_RC_DESCRIPTION": "Recharge toutes les commandes.",
   "HELP_RC_USAGE": "reloadcommand",
+
+  "HELP_RM_NAME": "Recharge Modules",
+  "HELP_RM_CATEGORY": "Admin",
+  "HELP_RM_DESCRIPTION": "Recharge tous les modules.",
+  "HELP_RM_USAGE": "reloadmodules",
 
   "HELP_HELP_NAME": "Aide",
   "HELP_HELP_CATEGORY": "Système",
