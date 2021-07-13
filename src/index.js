@@ -21,7 +21,6 @@ dotenv.config();
   // Load Commands and Events files
   Loader.loadCommands(client);
   Loader.loadEvents(client);
-  Loader.loadModules(client);
 
   // Log bot into Discord
   client.login(process.env.TOKEN);
