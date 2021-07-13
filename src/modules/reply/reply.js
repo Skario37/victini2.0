@@ -58,7 +58,7 @@ const reply = (client, message) => {
 
   if (!reply) return;
 
-  if (first !== reply) {
+  if (first.toLowerCase() !== reply) {
     reply = reply.replace(first.toLowerCase(), "");
   }
 
