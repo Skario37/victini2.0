@@ -43,3 +43,10 @@ exports.bookingMessage = async (message, author, time, reactArray, events) => {
     authorCollector.on(event, events[event]);
   }
 }
+
+/**
+ * Timer function
+ * @param {*} ms 
+ * @returns Promise
+ */
+exports.timer = ms => new Promise(res => setTimeout(res, ms));
