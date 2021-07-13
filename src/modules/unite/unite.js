@@ -69,8 +69,8 @@ const dotcomImagesInit = async (client) => {
     for (const category of uniteConfig.DOTCOM_IMAGES.categories) {
       if (this.conf.unsubscribed) return;
       const parsed_url = uniteConfig.DOTCOM_IMAGES.url
-      .replaceAll("{{name}}", pokemon[i]) // Replace {name} by the Pokémon name
-      .replaceAll("{{category}}", category);
+      .replace(/{{name}}/g, pokemon[i]) // Replace {name} by the Pokémon name
+      .replace(/{{category}}/g, category);
 
       // Reserve interval
       const interval = undefined;
@@ -119,7 +119,7 @@ const dotcomPokemonInit = async (client) => {
   for (let i = 0; i < pokemon.length; i++) {
     if (this.conf.unsubscribed) return;
     const parsed_url = uniteConfig.DOTCOM_POKEMON.url
-      .replaceAll("{{name}}", pokemon[i]) // Replace {name} by the Pokémon name
+      .replace(/{{name}}/g, pokemon[i]) // Replace {name} by the Pokémon name
 
     // Reserve interval
     const interval = undefined;
@@ -181,7 +181,7 @@ const japanPokemonInit = (client) => {
   for (let day = 0; day < 7; day++) {
     if (this.conf.unsubscribed) return;
     const fullDate = getFullDate(day);
-    const parsed_url_date = uniteConfig.JAPAN_POKEMON.url.replaceAll("{{date}}", fullDate);
+    const parsed_url_date = uniteConfig.JAPAN_POKEMON.url.replace(/{{date}}/g, fullDate);
     const parsed_url = parsed_url_date.replace("{{number}}", "01");
 
     const interval = undefined;
@@ -209,7 +209,7 @@ const japanPokemonInit = (client) => {
         numberStr = numberStr.substring(numberStr.length - 1, -1);
         numberStr = parseInt(numberStr) + 1;
         numberStr = numberStr < 10 ? `0${numberStr}` : numberStr;
-        url = parsed_url_date.replaceAll("{{number}}", numberStr);
+        url = parsed_url_date.replace(/{{number}}/g, numberStr);
         https.get(url, res => callback(url, index, res))
           .on("error", (e) => error(e));
       }
