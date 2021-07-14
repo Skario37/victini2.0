@@ -24,16 +24,13 @@ const reply = (client, message) => {
 
   // Separate args and command name
   const args = message.content.split(/ +/);
-  const argsCopy = [...args];
-  message.commandName = args.shift().toLowerCase();
-  // Check wheter the command, or alias, exist in the collections
- 
+
   /**
    * End copy past
    */
   let reply = undefined;
 
-  const first = (args.length ? argsCopy.pop() : argsCopy.shift());
+  const first = (args.length > 1 ? args.pop() : args.shift());
 
   const pokemonFromLanguage = replyConfig.POKEMON[settings.language].filter(pokemon => pokemon.startsWith(first.toLowerCase()));
 
@@ -69,7 +66,7 @@ const reply = (client, message) => {
 
   reply += "!";
 
-  message.lineReply(reply);
+  message.lineReplyNoMention(reply);
 }
 
 exports.init = (client) => {

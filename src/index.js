@@ -18,9 +18,6 @@ dotenv.config();
         "GUILD_MESSAGE_REACTIONS", "GUILD_MESSAGE_TYPING", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", 
         "DIRECT_MESSAGE_TYPING"
       ]
-    },
-    allowedMentions: {
-      repliedUser: true
     }
   });
   client.env = process.env.NODE_ENV;
