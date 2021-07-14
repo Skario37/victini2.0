@@ -33,6 +33,13 @@
   "PERM_BOTOWNER": "Bot owner",
   "PERM_NOTICE": "You do not have permission to use this command.\nYour permission level is: {{permName}}\nThis command requires the level: {{commandPermName}}",
 
+  "NEED_MANAGE_NICKNAMES_PERMISSION": "I need the manage nickname permission ton run this command.",
+  "YOU_NEED_MANAGE_NICKNAMES_PERMISSION": "You need the manage nickname permission ton run this command.",
+
+  "NICKNAME_MISSING_PERMISSIONS": "I do not have permissions to rename {{variable}}.",
+  "NICKNAME_INVALID": "Nickname must be 32 or fewer in length.",
+  "NICKNAME_ROLE_LOWER": "You cannot change the nickname of a member with a higher role than yours.",
+
   "UNKNOWN_COMMAND": "This command does not exist.",
   "UNAVAILABLE_COMMAND": "This command is unavailable in direct message.\nPlease use it in a guild.",
   "UNAUTHORIZED_COMMAND": "You do not have permission to use this command.",
@@ -119,5 +126,27 @@
   "HELP_PERM_DESCRIPTION": "Display your permissions.",
   "HELP_PERM_USAGE": "permission [@user | username | userid]",
 
-  "PERM_DISPLAY": "This user owns permissions: {{permName}}"
+  "PERM_DISPLAY": "This user owns permissions: {{permName}}",
+
+  "HELP_NICK_NAME": "Nickname",
+  "HELP_NICK_CATEGORY": "Profil",
+  "HELP_NICK_DESCRIPTION": "Change your nickname.",
+  "HELP_NICK_USAGE": "nickname [@user]",
+
+  "HELP_CALC_NAME": "Calculate",
+  "HELP_CALC_CATEGORY": "Misc",
+  "HELP_CALC_DESCRIPTION": "Calculate a math expression.",
+  "HELP_CALC_USAGE": "calculate <expression>",
+
+  "ERROR_CALC_ARGUMENTS": "Need 1 argument.",
+  "ERROR_CALC_INVALID": "Invalid expression.",
+  "ERROR_CALC_FAILED": "I failed to calculate the expression.",
+  "SUCCESS_CALC_EXPRESSION": "Result: `{{variable}}`",
+
+  "HELP_GIF_NAME": "Gif",
+  "HELP_GIF_CATEGORY": "Social",
+  "HELP_GIF_DESCRIPTION": "Display a gif.",
+  "HELP_GIF_USAGE": "gif [term]",
+
+  "GIF_NOT_FOUND": "No gif was found."
 }

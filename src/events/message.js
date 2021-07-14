@@ -43,8 +43,8 @@ module.exports = async (client, message) => {
   if (!command) {
     return message.lineReplyNoMention(i18n("UNKNOWN_COMMAND", settings.language))
       .then(msg => {
-        message.delete({"timeout": 10000});
-        msg.delete({"timeout": 10000});
+        message.delete({"timeout": 10000}).catch(e => {});
+        msg.delete({"timeout": 10000}).catch(e => {});
       });
   }
 
@@ -53,8 +53,8 @@ module.exports = async (client, message) => {
   if (!message.guild && command.help.guildOnly) {
     return message.channel.send(i18n("UNAVAILABLE_COMMAND", settings.language))
       .then(msg => {
-        message.delete({"timeout": 10000});
-        msg.delete({"timeout": 10000});
+        message.delete({"timeout": 10000}).catch(e => {});
+        msg.delete({"timeout": 10000}).catch(e => {});
       });
   }
 
@@ -68,14 +68,14 @@ module.exports = async (client, message) => {
           .replace("{{permName}}", getPermNameByLevel(message.author.permLevel))
           .replace("{{commandPermName}}", command.conf.permLevel)
       ).then(msg => {
-        message.delete({"timeout": 10000});
-        msg.delete({"timeout": 10000});
+        message.delete({"timeout": 10000}).catch(e => {});
+        msg.delete({"timeout": 10000}).catch(e => {});
       });
     } else {
       return message.lineReplyNoMention(i18n("UNAUTHORIZED_COMMAND", settings.language))
         .then(msg => {
-          message.delete({"timeout": 10000});
-          msg.delete({"timeout": 10000});
+          message.delete({"timeout": 10000}).catch(e => {});
+          msg.delete({"timeout": 10000}).catch(e => {});
         });
     }
   }
@@ -99,8 +99,8 @@ module.exports = async (client, message) => {
           i18n("COOLDOWN_COMMAND", settings.language)
             .replace("{{variable}}", Math.floor(timeLeft / 1000))
         ).then(msg => {
-          message.delete({"timeout": timeLeft});
-          msg.delete({"timeout": timeLeft});
+          message.delete({"timeout": timeLeft}).catch(e => {});
+          msg.delete({"timeout": timeLeft}).catch(e => {});
         });
       }
     }

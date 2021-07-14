@@ -33,6 +33,13 @@
   "PERM_BOTOWNER": "Propriétaire du bot",
   "PERM_NOTICE": "Vous n'avez pas la permission d'utiliser cette commande.\nVotre niveau de permission est : {{permName}}\nCette commande nécessite le niveau : {{commandPermName}}",
 
+  "NEED_MANAGE_NICKNAMES_PERMISSION": "J'ai besoin de la permission de gérer les pseudos pour exécuter cette commande.",
+  "YOU_NEED_MANAGE_NICKNAMES_PERMISSION": "Tu as besoin de la permission de gérer les pseudos pour exécuter cette commande.",
+
+  "NICKNAME_MISSING_PERMISSIONS": "Je n'ai pas la permission de renommer {{variable}}.",
+  "NICKNAME_INVALID": "Le pseudo doit être d'une longueur de 32 caractères ou moins.",
+  "NICKNAME_ROLE_LOWER": "Tu ne peux pas modifier le pseudo d'un membre avec un rôle plus élevé que les tiens.",
+
   "UNKNOWN_COMMAND": "Cette commande n'existe pas.",
   "UNAVAILABLE_COMMAND": "Cette commande est indisponible en message direct.\nVeuillez exécuter cette commande dans un serveur.",
   "UNAUTHORIZED_COMMAND": "Vous n'avez pas la permission d'utiliser cette commande.",
@@ -117,7 +124,29 @@
   "HELP_PERM_NAME": "Permission",
   "HELP_PERM_CATEGORY": "Autre",
   "HELP_PERM_DESCRIPTION": "Affiche vos permissions.",
-  "HELP_PERM_USAGE": "permission",
+  "HELP_PERM_USAGE": "permission [@user | username | userid]",
 
-  "PERM_DISPLAY": "Cet utilisateur possède les permissions : {{permName}}"
+  "PERM_DISPLAY": "Cet utilisateur possède les permissions : {{permName}}",
+
+  "HELP_NICK_NAME": "Pseudo",
+  "HELP_NICK_CATEGORY": "Profil",
+  "HELP_NICK_DESCRIPTION": "Change votre pseudo.",
+  "HELP_NICK_USAGE": "nickname [@user]",
+
+  "HELP_CALC_NAME": "Calculer",
+  "HELP_CALC_CATEGORY": "Autre",
+  "HELP_CALC_DESCRIPTION": "Calcule une expression mathématique.",
+  "HELP_CALC_USAGE": "calculate <expression>",
+
+  "ERROR_CALC_ARGUMENTS": "Besoin d'1 argument.",
+  "ERROR_CALC_INVALID": "L'expression est invalide.",
+  "ERROR_CALC_FAILED": "Je n'ai pas réussi à calculer l'expression.",
+  "SUCCESS_CALC_EXPRESSION": "Résultat : `{{variable}}`",
+
+  "HELP_GIF_NAME": "Gif",
+  "HELP_GIF_CATEGORY": "Social",
+  "HELP_GIF_DESCRIPTION": "Affiche un gif.",
+  "HELP_GIF_USAGE": "gif [terme]",
+
+  "GIF_NOT_FOUND": "Aucun gif n'a été trouvé."
 }

@@ -3,6 +3,7 @@ const reloadCommands = require("../../utils/Loader").reloadCommands;
 
 exports.run = async (client, message, args, settings) => {
   reloadCommands(client, message, settings);
+  message.delete({"timeout": 10000}).catch(e => {});
 };
 
 exports.conf = {

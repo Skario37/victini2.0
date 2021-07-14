@@ -3,6 +3,7 @@ const reloadModules = require("../../utils/Loader").reloadModules;
 
 exports.run = async (client, message, args, settings) => {
   reloadModules(client, message, settings);
+  message.delete({"timeout": 10000}).catch(e => {});
 };
 
 exports.conf = {

@@ -10,9 +10,13 @@ exports.run = async (client, message, args, settings) => {
       .replace("{{prefix}}", settings.prefix)
       .replace("{{usage}}", this.help(settings.language).usage);
 
-    return message.channel.send(text).then(msg => msg.delete({"timeout": 10000}));
+    return message.lineReplyNoMention(text).then(msg => {
+      message.delete({"timeout": 10000}).catch(e => {});
+      msg.delete({"timeout": 10000}).catch(e => {});
+    });
   }
   loadCommand(client, message, settings, arg);
+  message.delete({"timeout": 10000}).catch(e => {});
 };
 
 exports.conf = {
