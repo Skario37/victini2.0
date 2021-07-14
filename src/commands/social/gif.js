@@ -18,7 +18,7 @@ exports.run = async (client, message, args, settings) => {
   if (args.length) {
     args = args.join(" ");
     // Gfycat
-    const dataGfycat = await gfycat.search({"search_text": args, "count": 100}).then(d => {
+    const dataGfycat = await gfycat.search({"search_text": args, "count": 5}).then(d => {
       if (d.found <= 0) return undefined;
       const gfy = d.gfycats[Math.floor(Math.random()*d.gfycats.length)];
       return gfy.max5mbGif || gfy.max2mbGif || gfy.max1mbGif || gfy.webpUrl || gfy.webmUrl || gfy.mp4Url || gfy.gifUrl || gfy.mobileUrl || gfy.miniUrl || gfy.gif100px;
@@ -27,7 +27,7 @@ exports.run = async (client, message, args, settings) => {
     // EOF Gfycat
 
     // Giphy
-    const dataGiphy = await giphy.search({"q": args, "limit": 100, "rating": "pg", "fmt": "json"}).then(d => {
+    const dataGiphy = await giphy.search({"q": args, "limit": 5, "rating": "pg", "fmt": "json"}).then(d => {
       if (d.data.length === 0) return undefined;
       return d.data[Math.floor(Math.random()*d.data.length)].url;
     }).catch(e => undefined);
@@ -36,7 +36,7 @@ exports.run = async (client, message, args, settings) => {
 
 
     // Tenor
-    const dataTenor = await Tenor.Search.Query(args, "50").then(d => {
+    const dataTenor = await Tenor.Search.Query(args, "5").then(d => {
       if (d.length === 0) return undefined;
       return d[Math.floor(Math.random()*d.length)].url;
     }).catch(e => undefined);
@@ -55,7 +55,7 @@ exports.run = async (client, message, args, settings) => {
 
   } else {
     // Gfycat
-    const dataGfycat = await gfycat.trendingGifs({"count": 100}).then(d => {
+    const dataGfycat = await gfycat.trendingGifs({"count": 50}).then(d => {
       if (d.found <= 0) return undefined;
       const gfy = d.gfycats[Math.floor(Math.random()*d.gfycats.length)];
       return gfy.max5mbGif || gfy.max2mbGif || gfy.max1mbGif || gfy.webpUrl || gfy.webmUrl || gfy.mp4Url || gfy.gifUrl || gfy.mobileUrl || gfy.miniUrl || gfy.gif100px;
