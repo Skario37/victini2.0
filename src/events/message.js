@@ -1,7 +1,8 @@
 const i18n = require("../utils/i18n").i18n;
 const getPerm = require("../utils/PermLevel").getPerm;
 const getCommandPerm = require("../utils/PermLevel").getCommandPerm;
-const cmd = require("../utils/Logger").cmd
+const getPermNameByLevel = require("../utils/PermLevel").getPermNameByLevel;
+const cmd = require("../utils/Logger").cmd;
 const Config = require("../config.json");
 const Collection = require("discord.js").Collection;
 
@@ -40,30 +41,42 @@ module.exports = async (client, message) => {
   // Check wheter the command, or alias, exist in the collections
   const command = client.commands.get(message.commandName) || client.commands.get(client.aliases.get(message.commandName))
   if (!command) {
-    return message.channel.send(i18n("UNKNOWN_COMMAND", settings.language))
-      .then(msg => msg.delete({"timeout": 10000}));
+    return message.lineReplyNoMention(i18n("UNKNOWN_COMMAND", settings.language))
+      .then(msg => {
+        message.delete({"timeout": 10000});
+        msg.delete({"timeout": 10000});
+      });
   }
 
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
   if (!message.guild && command.help.guildOnly) {
     return message.channel.send(i18n("UNAVAILABLE_COMMAND", settings.language))
-      .then(msg => msg.delete({"timeout": 10000}));
+      .then(msg => {
+        message.delete({"timeout": 10000});
+        msg.delete({"timeout": 10000});
+      });
   }
 
   // Author's level is now put on level (not member so it is supported in DMs)
-  message.author.permLevel = getPerm(message, settings);
+  message.author.permLevel = getPerm(message, message.author, settings);
   // Check for authorized command
   if (message.author.permLevel < getCommandPerm(command.conf.permLevel)) {
     if (settings.systemNotice === "true") {
-      return message.channel.send(
+      return message.lineReplyNoMention(
         i18n("PERM_NOTICE", settings.language)
-          .replace("{{permName}}", command.conf.permLevel)
+          .replace("{{permName}}", getPermNameByLevel(message.author.permLevel))
           .replace("{{commandPermName}}", command.conf.permLevel)
-      ).then(msg => msg.delete({"timeout": 10000}));
+      ).then(msg => {
+        message.delete({"timeout": 10000});
+        msg.delete({"timeout": 10000});
+      });
     } else {
-      return message.channel.send(i18n("UNAUTHORIZED_COMMAND", settings.language))
-        .then(msg => msg.delete({"timeout": 10000}));
+      return message.lineReplyNoMention(i18n("UNAUTHORIZED_COMMAND", settings.language))
+        .then(msg => {
+          message.delete({"timeout": 10000});
+          msg.delete({"timeout": 10000});
+        });
     }
   }
 
@@ -82,10 +95,13 @@ module.exports = async (client, message) => {
 
       if (timeNow < cdExpirationTime) {
         timeLeft = cdExpirationTime - timeNow;
-        return message.channel.send(
+        return message.lineReplyNoMention(
           i18n("COOLDOWN_COMMAND", settings.language)
             .replace("{{variable}}", Math.floor(timeLeft / 1000))
-        ).then(msg => msg.delete({"timeout": timeLeft}));
+        ).then(msg => {
+          message.delete({"timeout": timeLeft});
+          msg.delete({"timeout": timeLeft});
+        });
       }
     }
 
