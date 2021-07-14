@@ -4,12 +4,12 @@ const Config = require("../config.json");
 /*
 PERMISSION LEVEL FUNCTION
 */
-exports.getPerm = (message, settings) => {
+exports.getPerm = (message, user, settings) => {
   let permlvl = 0;
   const permOrder = permlevelSettings.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
   while (permOrder.length) {
     const currentLevel = permOrder.shift();
-    if (currentLevel.check(message, settings)) {
+    if (currentLevel.check(message, user, settings)) {
       permlvl = currentLevel.level;
       break;
     }
@@ -69,7 +69,7 @@ const permlevelSettings = [
     name: "Server Owner", 
     // Simple check, if the guild owner id matches the message author's ID, then it will return true.
     // Otherwise it will return false.
-    check: (message) => message.channel.type === "text" ? (message.guild.ownerID === message.author.id ? true : false) : false
+    check: (message, user) => message.channel.type === "text" ? (message.guild.ownerID === user.id ? true : false) : false
   },
 
   // Bot Support is a special inbetween level that has the equivalent of server owner access
@@ -78,13 +78,13 @@ const permlevelSettings = [
     name: "Bot Support",
     // The check is by reading if an ID is part of this array. Yes, this means you need to
     // change this and reboot the bot to add a support user. Make it better yourself!
-    check: (message) => Config.SUPPORTS.some(support => support.id === message.author.id)
+    check: (message, user) => Config.SUPPORTS.some(support => support.id === user.id)
   },
 
   // Bot Admin has some limited access like rebooting the bot or reloading commands.
   { level: 9,
     name: "Bot Admin",
-    check: (message) => Config.ADMINS.some(admin => admin.id === message.author.id)
+    check: (message, user) => Config.ADMINS.some(admin => admin.id === user.id)
   },
 
   // This is the bot owner, this should be the highest permission level available.
@@ -93,6 +93,6 @@ const permlevelSettings = [
   { level: 10,
     name: "Bot Owner", 
     // Another simple check, compares the message author id to the one stored in the config file.
-    check: (message) => Config.OWNER.id === message.author.id
+    check: (message, user) => Config.OWNER.id === user.id
   }
 ];

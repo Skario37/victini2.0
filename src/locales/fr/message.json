@@ -36,7 +36,7 @@
   "UNKNOWN_COMMAND": "Cette commande n'existe pas.",
   "UNAVAILABLE_COMMAND": "Cette commande est indisponible en message direct.\nVeuillez exécuter cette commande dans un serveur.",
   "UNAUTHORIZED_COMMAND": "Vous n'avez pas la permission d'utiliser cette commande.",
-  "COOLDOWN_COOLDOWN": "Plus que {{variable}}s avant de pouvoir utiliser cette commande.",
+  "COOLDOWN_COMMAND": "Plus que {{variable}}s avant de pouvoir utiliser cette commande.",
 
   "USAGE": "Usage : `{{prefix}}{{usage}}`",
 
@@ -112,5 +112,12 @@
   "STATS_GUILDS": "Serveurs :",
   "STATS_USERS": "Utilisateurs :",
   "STATS_API_VERSION": "Discord.js :",
-  "STATS_NODE_VERSION": "Node.js :"
+  "STATS_NODE_VERSION": "Node.js :",
+
+  "HELP_PERM_NAME": "Permission",
+  "HELP_PERM_CATEGORY": "Autre",
+  "HELP_PERM_DESCRIPTION": "Affiche vos permissions.",
+  "HELP_PERM_USAGE": "permission",
+
+  "PERM_DISPLAY": "Cet utilisateur possède les permissions : {{permName}}"
 }

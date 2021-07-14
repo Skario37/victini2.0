@@ -36,7 +36,7 @@
   "UNKNOWN_COMMAND": "This command does not exist.",
   "UNAVAILABLE_COMMAND": "This command is unavailable in direct message.\nPlease use it in a guild.",
   "UNAUTHORIZED_COMMAND": "You do not have permission to use this command.",
-  "COOLDOWN_COOLDOWN": "Still {{variable}}s before you can use this command.",
+  "COOLDOWN_COMMAND": "Still {{variable}}s before you can use this command.",
 
   "USAGE": "Usage: `{{prefix}}{{usage}}`",
   
@@ -112,5 +112,12 @@
   "STATS_GUILDS": "Guilds:",
   "STATS_USERS": "Users:",
   "STATS_API_VERSION": "Discord.js:",
-  "STATS_NODE_VERSION": "Node.js:"
+  "STATS_NODE_VERSION": "Node.js:",
+
+  "HELP_PERM_NAME": "Permission",
+  "HELP_PERM_CATEGORY": "Misc",
+  "HELP_PERM_DESCRIPTION": "Display your permissions.",
+  "HELP_PERM_USAGE": "permission [@user | username | userid]",
+
+  "PERM_DISPLAY": "This user owns permissions: {{permName}}"
 }

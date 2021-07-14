@@ -59,7 +59,7 @@ exports.run = async (client, message, args, settings) => {
 exports.conf = {
   name: "ping",
   permLevel: "User",
-  cooldown: 0,
+  cooldown: 1,
   enabled: true,
   guildOnly: false,
   aliases: ["pong"]
