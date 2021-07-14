@@ -1,5 +1,6 @@
 const i18n = require("../utils/i18n").i18n;
 const error = require("../utils/Logger").error;
+const log = require("../utils/Logger").log;
 const Config = require("../config.json");
 const Loader = require("../utils/Loader");
 
@@ -28,4 +29,5 @@ module.exports = (client) => {
   }
 
   Loader.loadModules(client);
+  log(i18n("READY_MESSAGE", Config.DEFAULTSETTINGS.language), "ready");
 };
