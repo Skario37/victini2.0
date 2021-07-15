@@ -45,7 +45,7 @@ exports.conf = {
   cooldown: 1,
   enabled: true,
   guildOnly: false,
-  aliases: ["calc"]
+  aliases: ["calc", "calculer"]
 }
 
 exports.help = (language) => { 

@@ -62,5 +62,149 @@
   "TEN": {
     "name": "🔟",
     "text": ":keycap_ten:"
+  },
+  "BITE": {
+    "name": "👄",
+    "text": ":lips:"
+  },
+  "BLUSH": {
+    "name": "😊",
+    "text": ":blush:"
+  },
+  "CONFUSED": {
+    "name": "😵‍💫",
+    "text": ":face_with_spiral_eyes:"
+  },
+  "DAB": {
+    "name": "😎",
+    "text": ":sunglasses:"
+  },
+  "DANCE": {
+    "name": "💃🕺",
+    "text": ":dancer::man_dancing:"
+  },
+  "FLOWER": {
+    "name": "🥀",
+    "text": ":wilted_rose:"
+  },
+  "FOOD": {
+    "name": "🥪",
+    "text": ":sandwich:"
+  },
+  "GLARE": {
+    "name": "😑",
+    "text": ":expressionless:"
+  },
+  "GUN": {
+    "name": "🔫",
+    "text": ":gun:"
+  },
+  "HANDHOLDING": {
+    "name": "👫",
+    "text": ":couple:"
+  },
+  "HANDSHAKE": {
+    "name": "🤝",
+    "text": ":handshake:"
+  },
+  "HELLO": {
+    "name": "👋",
+    "text": ":wave:"
+  },
+  "HUG": {
+    "name": "🤗",
+    "text": ":hugging:"
+  },
+  "IDK": {
+    "name": "🤷",
+    "text": ":person_shrugging:"
+  },
+  "INSULT": {
+    "name": "🤬",
+    "text": ":face_with_symbols_over_mouth:"
+  },
+  "KISS": {
+    "name": "💋",
+    "text": ":kiss:"
+  },
+  "LAUGH": {
+    "name": "😆",
+    "text": ":laughing:"
+  },
+  "LICK": {
+    "name": "😛",
+    "text": ":stuck_out_tongue:"
+  },
+  "LOVE": {
+    "name": "❤️",
+    "text": ":heart:"
+  },
+  "PAT": {
+    "name": "😽",
+    "text": ":kissing_cat:"
+  },
+  "POKE": {
+    "name": "👉",
+    "text": ":point_right:"
+  },
+  "POUT": {
+    "name": "😒",
+    "text": ":unamused:"
+  },
+  "PUNISH": {
+    "name": "😈",
+    "text": ":smiling_imp:"
+  },
+  "SAD": {
+    "name": "😢",
+    "text": ":cry:"
+  },
+  "SLAP": {
+    "name": "✋",
+    "text": ":raised_hand:"
+  },
+  "SLEEP": {
+    "name": "😴",
+    "text": ":sleeping:"
+  },
+  "SMILE": {
+    "name": "😁",
+    "text": ":smile:"
+  },
+  "SMUG": {
+    "name": "😝",
+    "text": ":stuck_out_tongue_closed_eyes:"
+  },
+  "THINKING": {
+    "name": "🤔",
+    "text": ":thinking:"
+  },
+  "THROW": {
+    "name": "🤸",
+    "text": ":person_doing_cartwheel:"
+  },
+  "THUMBSUP": {
+    "name": "👍",
+    "text": ":thumbsup:"
+  },
+  "TICKLE": {
+    "name": "🤣",
+    "text": ":rofl:"
+  },
+  "TRIGGERED": {
+    "name": "😠",
+    "text": ":angry:"
+  },
+  "WASTED": {
+    "name": "😵",
+    "text": ":dizzy_face:"
+  },
+  "RACLETTE": {
+    "name": "🧀🥔",
+    "text": ":cheese::potato:"
+  },
+  "MARRY": {
+    "name": "👰🤵",
+    "text": ":person_with_veil:person_in_tuxedo:"
   }
 }

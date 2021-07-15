@@ -42,17 +42,6 @@ exports.run = async (client, message, args, settings) => {
     }).catch(e => undefined);
     if (dataTenor) gifs.push(dataTenor);
     // EOF Tenor
-   
-    if (gifs.length) {
-      return message.lineReplyNoMention(gifs[Math.floor(Math.random()*gifs.length)]);
-    } else {
-      return message.lineReplyNoMention(i18n("GIF_NOT_FOUND", settings.language))
-      .then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
-      });
-    }
-
   } else {
     // Gfycat
     const dataGfycat = await gfycat.trendingGifs({"count": 50}).then(d => {
@@ -79,19 +68,17 @@ exports.run = async (client, message, args, settings) => {
     }).catch(e => undefined);
     if (dataTenor) gifs.push(dataTenor);
     // EOF Tenor
-   
-   
-    if (gifs.length) {
-      return message.lineReplyNoMention(gifs[Math.floor(Math.random()*gifs.length)]);
-    } else {
-      return message.lineReplyNoMention(i18n("GIF_NOT_FOUND", settings.language))
-      .then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
-      });
-    }
   }
 
+  if (gifs.length) {
+    return message.lineReplyNoMention(gifs[Math.floor(Math.random()*gifs.length)]);
+  } else {
+    return message.lineReplyNoMention(i18n("GIF_NOT_FOUND", settings.language))
+    .then(msg => {
+      message.delete({"timeout": 10000}).catch(e => {});
+      msg.delete({"timeout": 10000}).catch(e => {});
+    });
+  }
 };
 
 exports.conf = {

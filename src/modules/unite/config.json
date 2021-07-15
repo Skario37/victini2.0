@@ -2,7 +2,7 @@
   "enabled": false,
   "notice": false,
   "DOTCOM_IMAGES": {
-    "channel": "863579044246978590",
+    "channel": "856541912794529845",
     "url": "https://unite.pokemon.com/images/pokemon/{{name}}/{{category}}/{{category}}-{{name}}.png",
     "categories": [
       "roster",
@@ -11,17 +11,17 @@
     "interval": 3600000
   },
   "DOTCOM_POKEMON": {
-    "channel": "863579044246978590",
+    "channel": "856650358817030154",
     "url": "https://unite.pokemon.com/en-us/pokemon/{{name}}/",
     "interval": 3600000
   },
   "JAPAN_NEWS": {
-    "channel": "863579044246978590",
+    "channel": "856650042173030441",
     "url": "https://www.pokemonunite.jp/api/ja/news/",
     "interval": 60000
   },
   "JAPAN_POKEMON": {
-    "channel": "863579044246978590",
+    "channel": "856650042173030441",
     "url": "https://www.pokemonunite.jp/ja/pokemon/{{date}}_{{number}}/",
     "interval": 3600000
   },
@@ -1038,13 +1038,27 @@
     "cinderace",
     "eldegoss",
     "cramorant",
-    "alolan-ninetales"
+    "alolan-ninetales",
+    "zeraora"
   ],
   "KNOWN_JAPAN_NEWS_ID": [
     "2",
     "9",
     "6",
-    "1"
+    "1",
+    "11",
+    "13"
   ],
-  "KNOWN_JAPAN_URL": []
+  "KNOWN_JAPAN_URL": [
+    "https://www.pokemonunite.jp/ja/pokemon/210715_01/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_02/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_03/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_04/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_05/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_06/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_07/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_08/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_09/",
+    "https://www.pokemonunite.jp/ja/pokemon/210715_10/"
+  ]
 }

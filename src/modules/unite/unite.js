@@ -190,15 +190,14 @@ const japanPokemonInit = (client) => {
     const callback = (url, index, res) => {
       if (this.conf.unsubscribed) return;
       if (res.statusCode === 200) {
-        if (uniteConfig.KNWON_JAPAN_URL.indexOf(url) === -1) {
-          uniteConfig.KNWON_JAPAN_URL.push(url);
-          setUniteConfig("KNOWN_JAPAN_URL", uniteConfig.KNWON_JAPAN_URL);
+        if (uniteConfig.KNOWN_JAPAN_URL.indexOf(url) === -1) {
+          uniteConfig.KNOWN_JAPAN_URL.push(url);
+          setUniteConfig("KNOWN_JAPAN_URL", uniteConfig.KNOWN_JAPAN_URL);
           clearInterval(requestIntervals[index]);
 
           const embed = new MessageEmbed();
           embed.setAuthor("A new page!");
           embed.setTitle(url);
-          embed.setImage(url);
           embed.setURL(url);
           embed.setFooter("Is now accessible.");
 
