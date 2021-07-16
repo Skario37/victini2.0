@@ -401,5 +401,30 @@
   "GIF_TRIGGERED_SOMETHING": "{{emoji}} {{author}} is triggered by {{variable}}.",
   "GIF_TRIGGERED_YOURSELF": "{{emoji}} {{author}} is triggered.",
   "GIF_WASTED_SOMETHING": "{{emoji}} {{author}} is wasted by {{variable}}.",
-  "GIF_WASTED_YOURSELF": "{{emoji}} {{author}} is wasted."
+  "GIF_WASTED_YOURSELF": "{{emoji}} {{author}} is wasted.",
+
+  "HELP_RATE_NAME": "Rate",
+  "HELP_RATE_CATEGORY": "Fun",
+  "HELP_RATE_DESCRIPTION": "I will rate you or what you want!",
+  "HELP_RATE_USAGE": "rate [text]",
+
+  "RATE_TITLE": "{{emoji}} rating...",
+  "RATE_PERFECT_LOSE": "I would note {{variable}} with a awful {{number}} out of 20!",
+  "RATE_VERY_BAD": "I would note {{variable}} with a terrible {{number}} out of 20!",
+  "RATE_BAD": "I would note {{variable}} with a poor {{number}} out of 20!",
+  "RATE_PRETTY_BAD": "I would note {{variable}} with a weak {{number}} out of 20!",
+  "RATE_COMMON": "I would note {{variable}} with an ordinary {{number}} out of 20!",
+  "RATE_PRETTY_GOOD": "I would note {{variable}} with an acceptable {{number}} out of 20!",
+  "RATE_GOOD": "I would note {{variable}} with good {{number}} out of 20!",
+  "RATE_VERY_GOOD": "I would note {{variable}} with an excellent {{number}} out of 20!",
+  "RATE_PERFECT_GOOD": "I would note {{variable}} with a perfect {{number}} out of 20!",
+
+  "HELP_MORSE_NAME": "Morse",
+  "HELP_MORSE_CATEGORY": "Encode/Decode",
+  "HELP_MORSE_DESCRIPTION": "...- .. -.-. - .. -. ..",
+  "HELP_MORSE_USAGE": "morse <text>",
+
+  "MORSE_DECODE_TITLE": "Decoded:",
+  "MORSE_ENCODE_TITLE": "Encoded:",
+  "ERROR_MORSE_ARGUMENTS": "Need at least 1 argument."
 }

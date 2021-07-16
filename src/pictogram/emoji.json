@@ -206,5 +206,9 @@
   "MARRY": {
     "name": "👰🤵",
     "text": ":person_with_veil:person_in_tuxedo:"
+  },
+  "WRITE": {
+    "name": "✍️",
+    "text": ":writing_hand:"
   }
 }

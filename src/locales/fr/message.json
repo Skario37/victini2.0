@@ -401,5 +401,30 @@
   "GIF_TRIGGERED_SOMETHING": "{{emoji}} {{variable}} trigger {{author}}.",
   "GIF_TRIGGERED_YOURSELF": "{{emoji}} {{author}} est triggered.",
   "GIF_WASTED_SOMETHING": "{{emoji}} {{variable}} a tué {{author}}.",
-  "GIF_WASTED_YOURSELF": "{{emoji}} {{author}} est mort."
+  "GIF_WASTED_YOURSELF": "{{emoji}} {{author}} est mort.",
+
+  "HELP_RATE_NAME": "Noter",
+  "HELP_RATE_CATEGORY": "Fun",
+  "HELP_RATE_DESCRIPTION": "Je vais te noter ou bien ce que tu veux !",
+  "HELP_RATE_USAGE": "rate [text]",
+
+  "RATE_TITLE": "{{emoji}} en train de noter...",
+  "RATE_PERFECT_LOSE": "Je noterais {{variable}} d'un horrible {{number}} sur 20 !",
+  "RATE_VERY_BAD": "Je noterais {{variable}} d'un terrible {{number}} sur 20 !",
+  "RATE_BAD": "Je noterais {{variable}} d'un pauvre {{number}} sur 20 !",
+  "RATE_PRETTY_BAD": "Je noterais {{variable}} d'un faible {{number}} sur 20 !",
+  "RATE_COMMON": "Je noterais {{variable}} d'un simple {{number}} sur 20 !",
+  "RATE_PRETTY_GOOD": "Je noterais {{variable}} d'un acceptable {{number}} sur 20 !",
+  "RATE_GOOD": "Je noterais {{variable}} d'un bon {{number}} sur 20 !",
+  "RATE_VERY_GOOD": "Je noterais {{variable}} d'un excellent {{number}} sur 20 !",
+  "RATE_PERFECT_GOOD": "Je noterais {{variable}} d'un parfait {{number}} sur 20 !",
+
+  "HELP_MORSE_NAME": "Morse",
+  "HELP_MORSE_CATEGORY": "Encoder/Décoder",
+  "HELP_MORSE_DESCRIPTION": "...- .. -.-. - .. -. ..",
+  "HELP_MORSE_USAGE": "morse <text>",
+
+  "MORSE_DECODE_TITLE": "Décodé:",
+  "MORSE_ENCODE_TITLE": "Encodé:",
+  "ERROR_MORSE_ARGUMENTS": "Besoin d'au moins 1 argument."
 }

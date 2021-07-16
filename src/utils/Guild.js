@@ -15,7 +15,7 @@ exports.getMember = async (message, args) => {
         const last = (lastIndex !== -1 ? arg.substr(lastIndex, arg.length) : "");
         const discriminator = last.substring(1);
         const username = arg.replace(last,"");
-        let members = await message.guild.members.fetch({"query": username, "limit": 100}); // By username
+        let members = await message.guild.members.fetch({"query": username, "limit": 10}); // By username
         if (members.size > 0) {
           if (isNaN(discriminator)) {
             member = members.find(m => m.user.discriminator === discriminator && m.user.username === username);
@@ -23,7 +23,7 @@ exports.getMember = async (message, args) => {
             member = members.find(m => m.user.username === username) || members.values().next().value;
           }
         } else {
-          members = await message.guild.members.fetch({"query": arg, "limit": 100}); // By username
+          members = await message.guild.members.fetch({"query": arg, "limit": 10}); // By username
           if (members.size > 0) member = members.find(m => m.user.username === username) || members.values().next().value;
         }
       }
