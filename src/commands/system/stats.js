@@ -1,19 +1,36 @@
 const { version } = require("discord.js");
-const moment = require("moment");
 const MessageEmbed = require("discord.js").MessageEmbed;
 const i18n = require("../../utils/i18n").i18n;
 const dhm = require("../../utils/Date").dhm;
 const getEmbedColor = require("../../utils/Functions").getEmbedColor;
+const error = require("../../utils/Loader").error;
 
 
-module.exports.run = (client, message, args, settings) => {
+module.exports.run = async (client, message, args, settings) => {
   const now = Date.now();
   const elapsed = now - (now - client.uptime);
   let duration = dhm(elapsed);
 
+  const promises = [
+    client.shard.fetchClientValues('guilds.cache.size'),
+    client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+  ];
+
+  const total = await Promise.all(promises)
+    .then(results => {
+      return {
+        guilds: results[0].reduce((acc, guildCount) => acc + guildCount, 0),
+        members: results[1].reduce((acc, memberCount) => acc + memberCount, 0)
+      }
+    })
+    .catch(e => {
+      error(e);
+      return [-1,-1]
+    });
+  
   const embed = new MessageEmbed();
   embed.setColor(getEmbedColor(settings));
-  embed.setTitle("= STATS =");
+  embed.setTitle(i18n("STATS_TITLE"));
   embed.addFields(
     {
       "name": i18n("STATS_MEMORY_USAGE", settings.language), 
@@ -27,12 +44,12 @@ module.exports.run = (client, message, args, settings) => {
     },
     {
       "name": i18n("STATS_GUILDS", settings.language), 
-      "value": client.guilds.cache.size,
+      "value": total.guilds,
       "inline": true
     },
     {
       "name": i18n("STATS_USERS", settings.language), 
-      "value": client.users.cache.size,
+      "value": total.members,
       "inline": true
     },
     {
@@ -47,7 +64,7 @@ module.exports.run = (client, message, args, settings) => {
     }
   );
 
-  message.channel.send(embed);
+  message.lineReplyNoMention(embed);
 };
 
 exports.conf = {
