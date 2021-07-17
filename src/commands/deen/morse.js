@@ -1,7 +1,7 @@
-const i18n = require("../../utils/i18n").i18n;
+const { i18n } = require("../../utils/i18n");
 const Emoji = require("../../pictogram/emoji.json");
-const MessageEmbed = require("discord.js").MessageEmbed;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
+const { MessageEmbed } = require("discord.js");
+const { getEmbedColor } = require("../../utils/Functions");
 const { decodeMorse, encodeMorse } = require("../../utils/Deen");
 
 

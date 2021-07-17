@@ -2,9 +2,9 @@ const fs = require("fs");
 const https = require('https');
 const md5 = require('md5');
 const pathResolve = require("path").resolve;
-const MessageEmbed = require("discord.js").MessageEmbed;
-const timer = require("../../utils/Functions").timer;
-const error = require("../../utils/Logger").error;
+const { MessageEmbed } = require("discord.js");
+const { timer } = require("../../utils/Functions");
+const { error } = require("../../utils/Logger");
 
 const path = pathResolve(__dirname, "config.json");
 let uniteConfig = require(path);

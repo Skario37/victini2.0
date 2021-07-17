@@ -1,4 +1,4 @@
-const i18n = require("../../utils/i18n").i18n;
+const { i18n } = require("../../utils/i18n");
 const Gfycat = require("gfycat-sdk");
 const gfycat = new Gfycat({"clientId": process.env.GFYCAT_API_ID, "clientSecret": process.env.GFYCAT_API_KEY});
 

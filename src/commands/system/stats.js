@@ -1,8 +1,8 @@
 const { version } = require("discord.js");
-const MessageEmbed = require("discord.js").MessageEmbed;
-const i18n = require("../../utils/i18n").i18n;
-const dhm = require("../../utils/Date").dhm;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
+const { MessageEmbed } = require("discord.js");
+const { i18n } = require("../../utils/i18n");
+const { dhm } = require("../../utils/Date");
+const { getEmbedColor } = require("../../utils/Functions");
 const error = require("../../utils/Loader").error;
 
 

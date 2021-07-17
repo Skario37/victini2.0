@@ -1,4 +1,4 @@
-const i18n = require("../../utils/i18n").i18n;
+const { i18n } = require("../../utils/i18n");
 
 exports.run = async (client, message, args, settings) => {
   if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) {

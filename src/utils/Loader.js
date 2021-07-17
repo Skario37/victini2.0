@@ -1,7 +1,6 @@
-const readdirSync = require("fs").readdirSync;
-const log = require("./Logger").log;
-const warn = require("./Logger").warn;
-const i18n = require("./i18n").i18n;
+const { readdirSync } = require("fs");
+const { log, warn} = require("./Logger");
+const { i18n } = require("./i18n");
 const Config = require("../config.json");
 
 const COMMAND_DIR = ".\/src\/commands";

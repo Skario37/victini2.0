@@ -1,5 +1,5 @@
-const i18n = require("../../utils/i18n").i18n;
-const reloadCommands = require("../../utils/Loader").reloadCommands;
+const { i18n } = require("../../utils/i18n");
+const { reloadCommands } = require("../../utils/Loader");
 
 exports.run = async (client, message, args, settings) => {
   reloadCommands(client, message, settings);

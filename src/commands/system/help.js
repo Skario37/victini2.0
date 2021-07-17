@@ -5,11 +5,10 @@ command is also filtered by level, so if a user does not have access to
 a command, it is not shown to them. If a command name is given with the
 help command, its extended help is shown.
 */
-const getCommandPerm = require("../../utils/PermLevel").getCommandPerm;
-const i18n = require("../../utils/i18n").i18n;
-const MessageEmbed = require("discord.js").MessageEmbed;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
-const bookingMessage = require("../../utils/Functions").bookingMessage;
+const { getCommandPerm } = require("../../utils/PermLevel");
+const { i18n } = require("../../utils/i18n");
+const { MessageEmbed } = require("discord.js");
+const { getEmbedColor, bookingMessage } = require("../../utils/Functions");
 const Emoji = require("../../pictogram/emoji.json");
 
 exports.run = (client, message, args, settings) => {

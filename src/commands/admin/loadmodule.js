@@ -1,5 +1,5 @@
-const i18n = require("../../utils/i18n").i18n;
-const loadModule = require("../../utils/Loader").loadModule;
+const { i18n } = require("../../utils/i18n");
+const { loadModule } = require("../../utils/Loader");
 
 exports.run = async (client, message, args, settings) => {
   const arg = args[0];

@@ -1,5 +1,5 @@
-const i18n = require("../../utils/i18n").i18n;
-const reloadModules = require("../../utils/Loader").reloadModules;
+const { i18n } = require("../../utils/i18n");
+const { reloadModules } = require("../../utils/Loader");
 
 exports.run = async (client, message, args, settings) => {
   reloadModules(client, message, settings);

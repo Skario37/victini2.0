@@ -1,4 +1,4 @@
-const getKeyByValue = require("./Object").getKeyByValue;
+const { getKeyByValue } = require("./Object");
 
 const MORSE_CODE = {
   "A": ".-",      "B": "-...",    "C": "-.-.",    "D": "-..",

@@ -10,11 +10,11 @@ const Tenor = require("tenorjs").client({
 const giphy = require("giphy-api")(process.env.GIPHY_API_KEY);
 
 
-const i18n = require("../../utils/i18n").i18n;
+const { i18n } = require("../../utils/i18n");
 const Emoji = require("../../pictogram/emoji.json");
-const MessageEmbed = require("discord.js").MessageEmbed;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
-const getMember = require("../../utils/Guild").getMember;
+const { MessageEmbed } = require("discord.js");
+const { getEmbedColor } = require("../../utils/Functions");
+const { getMember } = require("../../utils/Guild");
 
 exports.run = async (client, message, args, settings) => {
   const gifs = [];

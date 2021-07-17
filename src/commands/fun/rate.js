@@ -1,8 +1,8 @@
-const i18n = require("../../utils/i18n").i18n;
+const { i18n } = require("../../utils/i18n");
 const Emoji = require("../../pictogram/emoji.json");
-const MessageEmbed = require("discord.js").MessageEmbed;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
-const getRandomIntInclusive = require("../../utils/Math").getRandomIntInclusive;
+const { MessageEmbed } = require("discord.js");
+const { getEmbedColor } = require("../../utils/Functions");
+const { getRandomIntInclusive } = require("../../utils/Math");
 
 exports.run = async (client, message, args, settings) => {
   const rate = getRandomIntInclusive(0,20);

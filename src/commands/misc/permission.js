@@ -1,10 +1,9 @@
-const i18n = require("../../utils/i18n").i18n;
-const MessageEmbed = require("discord.js").MessageEmbed;
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
-const getPerm = require("../../utils/PermLevel").getPerm;
-const getPermNameByLevel = require("../../utils/PermLevel").getPermNameByLevel;
+const { i18n } = require("../../utils/i18n");
+const { MessageEmbed } = require("discord.js");
+const { getEmbedColor } = require("../../utils/Functions");
+const { getPerm, getPermNameByLevel } = require("../../utils/PermLevel");
 const Config = require("../../config.json");
-const getMember = require("../../utils/Guild").getMember;
+const { getMember } = require("../../utils/Guild");
 
 exports.run = async (client, message, args, settings) => {
   let user = message.author;

@@ -1,7 +1,7 @@
-const MessageEmbed = require("discord.js").MessageEmbed;
-const i18n = require("../../utils/i18n").i18n;
+const { MessageEmbed } = require("discord.js");
+const { i18n } = require("../../utils/i18n");
 const Emoji = require("../../pictogram/emoji.json");
-const getEmbedColor = require("../../utils/Functions").getEmbedColor;
+const { getEmbedColor } = require("../../utils/Functions");
 
 exports.run = async (client, message, args, settings) => {
   const msg = await message.channel.send(

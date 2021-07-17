@@ -426,5 +426,13 @@
 
   "MORSE_DECODE_TITLE": "Décodé:",
   "MORSE_ENCODE_TITLE": "Encodé:",
-  "ERROR_MORSE_ARGUMENTS": "Besoin d'au moins 1 argument."
+  "ERROR_MORSE_ARGUMENTS": "Besoin d'au moins 1 argument.",
+
+  "HELP_EMOJIFY_NAME": "Emojify",
+  "HELP_EMOJIFY_CATEGORY": "Fun",
+  "HELP_EMOJIFY_DESCRIPTION": "Rend votre texte émojifié.",
+  "HELP_EMOJIFY_USAGE": "emojify [--bg=<emoji>, --fg=<emoji>, --row, --column, --flag] <texte>",
+
+  "ERROR_EMOJIFY_ARGUMENTS": "Besoin d'au moins 1 argument.",
+  "ERROR_EMOJIFY_TOO_LONG": "Le texte émojifié est trop long pour être renvoyé !"
 }
