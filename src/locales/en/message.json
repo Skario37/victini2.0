@@ -39,6 +39,7 @@
   "NICKNAME_MISSING_PERMISSIONS": "I do not have permissions to rename {{variable}}.",
   "NICKNAME_INVALID": "Nickname must be 32 or fewer in length.",
   "NICKNAME_ROLE_LOWER": "You cannot change the nickname of a member with a higher role than yours.",
+  "NICKNAME_SUCCESS": "You successfully renamed: {{variable}}.",
 
   "UNKNOWN_COMMAND": "This command does not exist.",
   "UNAVAILABLE_COMMAND": "This command is unavailable in direct message.\nPlease use it in a guild.",
@@ -408,7 +409,7 @@
   "HELP_RATE_DESCRIPTION": "I will rate you or what you want!",
   "HELP_RATE_USAGE": "rate [text]",
 
-  "RATE_TITLE": "{{emoji}} rating...",
+  "RATE_TITLE": "{{emoji}} Rating...",
   "RATE_PERFECT_LOSE": "I would note {{variable}} with a awful {{number}} out of 20!",
   "RATE_VERY_BAD": "I would note {{variable}} with a terrible {{number}} out of 20!",
   "RATE_BAD": "I would note {{variable}} with a poor {{number}} out of 20!",
@@ -424,8 +425,8 @@
   "HELP_MORSE_DESCRIPTION": "...- .. -.-. - .. -. ..",
   "HELP_MORSE_USAGE": "morse <text>",
 
-  "MORSE_DECODE_TITLE": "Decoded:",
-  "MORSE_ENCODE_TITLE": "Encoded:",
+  "MORSE_DECODE_TITLE": "{{emoji}} Decoded:",
+  "MORSE_ENCODE_TITLE": "{{emoji}} Encoded:",
   "ERROR_MORSE_ARGUMENTS": "Need at least 1 argument.",
 
   "HELP_EMOJIFY_NAME": "Emojify",
@@ -434,5 +435,22 @@
   "HELP_EMOJIFY_USAGE": "emojify [--bg=<emoji>, --fg=<emoji>, --row, --column] <text>",
 
   "ERROR_EMOJIFY_ARGUMENTS": "Need at least 1 argument.",
-  "ERROR_EMOJIFY_TOO_LONG": "Emojified text is too long to be send!"
+  "ERROR_EMOJIFY_TOO_LONG": "Emojified text is too long to be send!",
+
+  "HELP_CRUSH_NAME": "Crush",
+  "HELP_CRUSH_CATEGORY": "Fun",
+  "HELP_CRUSH_DESCRIPTION": "What is your affinity with?",
+  "HELP_CRUSH_USAGE": "crush [@user | username | userid | text]",
+
+  "CRUSH_TITLE": "{{emoji}} Crush",
+  "CRUSH_AMOUNT": "Your affinity with {{variable}} is {{amount}}%!",
+
+  "HELP_CHOOSE_NAME": "Choose",
+  "HELP_CHOOSE_CATEGORY": "Fun",
+  "HELP_CHOOSE_DESCRIPTION": "What should I choose?",
+  "HELP_CHOOSE_USAGE": "choose <item1, item2[, itemX, ...]>",
+
+  "ERROR_CHOOSE_ARGUMENTS": "Need at least 2 arguments separated by a comma.",
+  "CHOOSE_TITLE": "{{emoji}} Among `{{items}}` I will choose...",
+  "CHOOSE_ITEM": "I have chosen: {{variable}}"
 }

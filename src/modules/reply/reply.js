@@ -3,6 +3,7 @@ const Config = require("../../config.json");
 const isUpperCase = require("../../utils/Functions").isUpperCase;
 const isFirstCapitalization = require("../../utils/Functions").isFirstCapitalization;
 const capitalizeFirstLetter = require("../../utils/Functions").capitalizeFirstLetter;
+const { getRandomInt } = require("../../utils/Math");
 
 let onMessage = null;
 
@@ -37,7 +38,7 @@ const reply = (client, message) => {
   if (pokemonFromLanguage.length === 1) {
     reply = pokemonFromLanguage[0];
   } else if (pokemonFromLanguage.length > 1) {
-    reply = pokemonFromLanguage[Math.floor(Math.random()*pokemonFromLanguage.length)];
+    reply = pokemonFromLanguage[getRandomInt(0, pokemonFromLanguage.length)];
   } else {
     const allPokemonObject = Object.fromEntries(Object.entries(replyConfig.POKEMON).filter(([k, v]) => k !== settings.language));
     let allPokemon = [];
@@ -50,7 +51,7 @@ const reply = (client, message) => {
     if (allPokemon.length === 1) {
       reply = allPokemon[0];
     } else if (allPokemon.length > 1) {
-      reply = allPokemon[Math.floor(Math.random()*allPokemon.length)];
+      reply = allPokemon[getRandomInt(0, allPokemon.length)];
     }
   }
 

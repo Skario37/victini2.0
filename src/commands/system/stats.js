@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, settings) => {
     }
   );
 
-  message.lineReplyNoMention(embed);
+  message.lineReplyNoMention(embed).catch(e => {});
 };
 
 exports.conf = {

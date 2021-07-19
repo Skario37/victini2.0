@@ -15,6 +15,7 @@ const Emoji = require("../../pictogram/emoji.json");
 const { MessageEmbed } = require("discord.js");
 const { getEmbedColor } = require("../../utils/Functions");
 const { getMember } = require("../../utils/Guild");
+const { getRandomInt } = require("../../utils/Math");
 
 exports.run = async (client, message, args, settings) => {
   const gifs = [];
@@ -24,7 +25,7 @@ exports.run = async (client, message, args, settings) => {
   // Gfycat
   const dataGfycat = await gfycat.search({"search_text": "confused", "count": 10}).then(d => {
     if (d.found <= 0) return undefined;
-    const gfy = d.gfycats[Math.floor(Math.random()*d.gfycats.length)];
+    const gfy = d.gfycats[getRandomInt(0, d.gfycats.length)];
     return gfy.max5mbGif || gfy.max2mbGif || gfy.max1mbGif || gfy.webpUrl || gfy.webmUrl || gfy.mp4Url || gfy.gifUrl || gfy.mobileUrl || gfy.miniUrl || gfy.gif100px;
   }).catch(e => undefined);
   if (dataGfycat) gifs.push(dataGfycat);
@@ -33,7 +34,7 @@ exports.run = async (client, message, args, settings) => {
   // Giphy
   const dataGiphy = await giphy.search({"q": "confused", "limit": 20, "rating": "pg", "fmt": "json"}).then(d => {
     if (d.data.length === 0) return undefined;
-    return d.data[Math.floor(Math.random()*d.data.length)].images.original.url;
+    return d.data[getRandomInt(0, d.data.length)].images.original.url;
   }).catch(e => undefined);
   if (dataGiphy) gifs.push(dataGiphy);
   // EOF Giphy
@@ -42,7 +43,7 @@ exports.run = async (client, message, args, settings) => {
   // Tenor
   const dataTenor = await Tenor.Search.Query("confused", "15").then(d => {
     if (d.length === 0) return undefined;
-    return d[Math.floor(Math.random()*d.length)].media[0].tinygif.url;
+    return d[getRandomInt(0, d.length)].media[0].tinygif.url;
   }).catch(e => undefined);
   if (dataTenor) gifs.push(dataTenor);
   // EOF Tenor
@@ -57,7 +58,12 @@ exports.run = async (client, message, args, settings) => {
 
     if (args.length) {
       args = args.join(" ");
-      if (member) args = member.nickname || member.user.username;
+      if (member) {
+        args = member.nickname || member.user.username;
+      } else {
+        const role = await getRole(message, args);
+        args = (role ? role.name : args);
+      }
       embed.setTitle(
         i18n("GIF_THINKING_SOMETHING", settings.language)
           .replace("{{emoji}}", Emoji.THINKING.text)
@@ -73,10 +79,10 @@ exports.run = async (client, message, args, settings) => {
     }
 
     
-    embed.setImage(gifs[Math.floor(Math.random()*gifs.length)]);
+    embed.setImage(gifs[getRandomInt(0, gifs.length)]);
 
 
-    return message.lineReplyNoMention(embed);
+    return message.lineReplyNoMention(embed).catch(e => {});
   } else {
     return message.lineReplyNoMention(i18n("GIF_NOT_FOUND", settings.language))
     .then(msg => {

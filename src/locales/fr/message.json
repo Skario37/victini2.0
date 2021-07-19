@@ -39,6 +39,7 @@
   "NICKNAME_MISSING_PERMISSIONS": "Je n'ai pas la permission de renommer {{variable}}.",
   "NICKNAME_INVALID": "Le pseudo doit être d'une longueur de 32 caractères ou moins.",
   "NICKNAME_ROLE_LOWER": "Tu ne peux pas modifier le pseudo d'un membre avec un rôle plus élevé que les tiens.",
+  "NICKNAME_SUCCESS": "Vous avez correctement renommé : {{variable}}.",
 
   "UNKNOWN_COMMAND": "Cette commande n'existe pas.",
   "UNAVAILABLE_COMMAND": "Cette commande est indisponible en message direct.\nVeuillez exécuter cette commande dans un serveur.",
@@ -406,9 +407,9 @@
   "HELP_RATE_NAME": "Noter",
   "HELP_RATE_CATEGORY": "Fun",
   "HELP_RATE_DESCRIPTION": "Je vais te noter ou bien ce que tu veux !",
-  "HELP_RATE_USAGE": "rate [text]",
+  "HELP_RATE_USAGE": "rate [texte]",
 
-  "RATE_TITLE": "{{emoji}} en train de noter...",
+  "RATE_TITLE": "{{emoji}} En train de noter...",
   "RATE_PERFECT_LOSE": "Je noterais {{variable}} d'un horrible {{number}} sur 20 !",
   "RATE_VERY_BAD": "Je noterais {{variable}} d'un terrible {{number}} sur 20 !",
   "RATE_BAD": "Je noterais {{variable}} d'un pauvre {{number}} sur 20 !",
@@ -422,10 +423,10 @@
   "HELP_MORSE_NAME": "Morse",
   "HELP_MORSE_CATEGORY": "Encoder/Décoder",
   "HELP_MORSE_DESCRIPTION": "...- .. -.-. - .. -. ..",
-  "HELP_MORSE_USAGE": "morse <text>",
+  "HELP_MORSE_USAGE": "morse <texte>",
 
-  "MORSE_DECODE_TITLE": "Décodé:",
-  "MORSE_ENCODE_TITLE": "Encodé:",
+  "MORSE_DECODE_TITLE": "{{emoji}} Décodé:",
+  "MORSE_ENCODE_TITLE": "{{emoji}} Encodé:",
   "ERROR_MORSE_ARGUMENTS": "Besoin d'au moins 1 argument.",
 
   "HELP_EMOJIFY_NAME": "Emojify",
@@ -434,5 +435,22 @@
   "HELP_EMOJIFY_USAGE": "emojify [--bg=<emoji>, --fg=<emoji>, --row, --column, --flag] <texte>",
 
   "ERROR_EMOJIFY_ARGUMENTS": "Besoin d'au moins 1 argument.",
-  "ERROR_EMOJIFY_TOO_LONG": "Le texte émojifié est trop long pour être renvoyé !"
+  "ERROR_EMOJIFY_TOO_LONG": "Le texte émojifié est trop long pour être renvoyé !",
+
+  "HELP_CRUSH_NAME": "Crush",
+  "HELP_CRUSH_CATEGORY": "Fun",
+  "HELP_CRUSH_DESCRIPTION": "Quel est ton affinité avec ?",
+  "HELP_CRUSH_USAGE": "crush [@user | username | userid | texte]",
+
+  "CRUSH_TITLE": "{{emoji}} Crush",
+  "CRUSH_AMOUNT": "Ton affinité avec {{variable}} est de {{amount}}% !",
+
+  "HELP_CHOOSE_NAME": "Choisir",
+  "HELP_CHOOSE_CATEGORY": "Fun",
+  "HELP_CHOOSE_DESCRIPTION": "Qu'est-ce que je vais choisir ?",
+  "HELP_CHOOSE_USAGE": "choose <objet1, objet2[, objetX, ...]>",
+
+  "ERROR_CHOOSE_ARGUMENTS": "Besoin d'au moins 2 arguments séparés par une virgule.",
+  "CHOOSE_TITLE": "{{emoji}} Parmi `{{items}}` je vais choisir...",
+  "CHOOSE_ITEM": "J'ai choisi : {{variable}}"
 }

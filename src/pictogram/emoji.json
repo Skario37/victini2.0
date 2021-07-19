@@ -411,5 +411,17 @@
   " ": {
     "name": "〰️",
     "text": ":wavy_dash:"
+  },
+  "HEART_FIRE": {
+    "name": "❤️‍🔥",
+    "text": ":heart_on_fire:"
+  },
+  "HOOK": {
+    "name": "🪝",
+    "text": ":hook:"
+  }, 
+  "MORSE": {
+    "name": "📡",
+    "text": ":satellite:"
   }
 }

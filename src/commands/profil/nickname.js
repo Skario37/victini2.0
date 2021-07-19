@@ -1,6 +1,6 @@
 const { i18n } = require("../../utils/i18n");
 
-exports.run = async (client, message, args, settings) => {
+exports.run = (client, message, args, settings) => {
   if (!message.guild.me.hasPermission("MANAGE_NICKNAMES")) {
     return message.lineReplyNoMention(i18n("NEED_MANAGE_NICKNAMES_PERMISSION", settings.language))
       .then(msg => {
@@ -44,25 +44,32 @@ exports.run = async (client, message, args, settings) => {
     member = message.member;
   }
   
-  try {
-    await member.setNickname(args.join(" "));
-  } catch (e) {
+
+  member.setNickname(args.join(" "))
+  .then(() => {
+    message.lineReplyNoMention(i18n("NICKNAME_SUCCESS", settings.language)
+        .replace("{{variable}}", member.user.username)
+      ).then(msg => {
+        message.delete({"timeout": 10000}).catch(e => {});
+        msg.delete({"timeout": 10000}).catch(e => {});
+      });
+  }).catch((e) => {
     if (e.code === 50013) { // MISSING_PERMISSIONS
-      return message.lineReplyNoMention(i18n("NICKNAME_MISSING_PERMISSIONS", settings.language)
+      message.lineReplyNoMention(i18n("NICKNAME_MISSING_PERMISSIONS", settings.language)
         .replace("{{variable}}", member.user.username)
       ).then(msg => {
         message.delete({"timeout": 10000}).catch(e => {});
         msg.delete({"timeout": 10000}).catch(e => {});
       });
     } else if (e.code === 50035) { // INVALID_FORM_BODY
-      return message.lineReplyNoMention(i18n("NICKNAME_INVALID", settings.language))
+      message.lineReplyNoMention(i18n("NICKNAME_INVALID", settings.language))
       .then(msg => {
         message.delete({"timeout": 10000}).catch(e => {});
         msg.delete({"timeout": 10000}).catch(e => {});
       });
     }
-  }
-};
+  });
+}
 
 exports.conf = {
   name: "nickname",

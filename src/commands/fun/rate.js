@@ -31,7 +31,7 @@ exports.run = async (client, message, args, settings) => {
     text
   )
 
-  return message.lineReplyNoMention(embed);
+  return message.lineReplyNoMention(embed).catch(e => {});
 };
 
 exports.conf = {
