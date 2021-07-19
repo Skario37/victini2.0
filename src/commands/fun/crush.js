@@ -35,7 +35,7 @@ exports.run = async (client, message, args, settings) => {
     everyone = true;
   }
   
-  const result = ((parseInt(message.author.id) >>> parseInt(crush)) % 100) + 1;
+  const result = (parseInt(message.author.id) % 101 + parseInt(crush) % 101) % 101;
 
   const embed = new MessageEmbed();
   embed.setColor(getEmbedColor(settings));
