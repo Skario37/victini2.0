@@ -157,7 +157,7 @@ const japanNewsInit = (client) => {
           embed.setAuthor("A news has come!");
           embed.setTitle(nw.title);
           embed.setImage(nw.img_1);
-          embed.setURL(nw.type === "body" ? `https://www.pokemonunite.jp/${nw.uniq}` : nw.uniq);
+          embed.setURL(nw.type === "body" ? `https://www.pokemonunite.jp${nw.uniq}` : nw.uniq);
           embed.setFooter(`Starting: ${nw.start_date}`);
 
           client.channels.fetch(uniteConfig.JAPAN_NEWS.channel)
@@ -223,6 +223,55 @@ const japanPokemonInit = (client) => {
   }
 }
 
+const eShopInit = (client) => {
+// Day of week
+  // Take a week ahead
+  if (this.conf.unsubscribed || (uniteConfig.FR_RELEASED && uniteConfig.JP_RELEASED)) return;
+
+  const interval = undefined;
+  const index = requestIntervals.push(interval) - 1;
+
+  const callback = (key, index, res) => {
+    if (this.conf.unsubscribed) return;
+    if (res.statusCode === 200) {
+      let str = "";
+      res.setEncoding('utf8');
+      res.on('data', chunk => str += chunk);
+      res.on('end', () => {
+        const results = JSON.parse(str)
+        if (results.prices[0].sales_status === "onsale") {
+          uniteConfig[`${key}_RELEASED`] = true;
+          setUniteConfig(`${key}_RELEASED`, true);
+          clearInterval(requestIntervals[index]);
+
+          const embed = new MessageEmbed();
+          embed.setAuthor(`Pokémon Unite is now available to play on ${key} eShop!`);
+
+          client.channels.fetch(uniteConfig.ESHOP.channel)
+            .then((channel) => {
+              channel.send(embed);
+              channel.send(`<@${uniteConfig.ESHOP.mention}>`);
+            });
+        }
+      });
+    }
+  };
+
+  https.get(uniteConfig.ESHOP.JP, res => callback("JP", index, res))
+    .on("error", (e) => error(e));
+  requestIntervals[index] = setInterval(
+    () => https.get(uniteConfig.ESHOP.JP, res => callback("JP", index, res)).on("error", (e) => error(e)),
+    uniteConfig.ESHOP.interval
+  );
+
+  https.get(uniteConfig.ESHOP.FR, res => callback("FR", index, res))
+    .on("error", (e) => error(e));
+  requestIntervals[index] = setInterval(
+    () => https.get(uniteConfig.ESHOP.FR, res => callback("FR", index, res)).on("error", (e) => error(e)),
+    uniteConfig.ESHOP.interval
+  );
+}
+
 const setUniteConfig = (key, value) => {
   writingConfig = true;
 
@@ -259,6 +308,7 @@ exports.init = (client) => {
   dotcomPokemonInit(client);
   japanNewsInit(client);
   japanPokemonInit(client);
+  eShopInit(client);
 }
 
 exports.commands = []

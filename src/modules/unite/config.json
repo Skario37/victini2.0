@@ -25,6 +25,15 @@
     "url": "https://www.pokemonunite.jp/ja/pokemon/{{date}}_{{number}}/",
     "interval": 3600000
   },
+  "ESHOP": {
+    "channel": "866997211161559091",
+    "mention": "177125407353470976",
+    "FR": "https://api.ec.nintendo.com/v1/price?country=FR&lang=fr&ids=70010000043293",
+    "JP": "https://api.ec.nintendo.com/v1/price?country=JP&lang=jp&ids=70010000043291",
+    "interval": 60000
+  },
+  "FR_RELEASED": false,
+  "JP_RELEASED": false,
   "POKEMON": [
     "bulbasaur",
     "ivysaur",
@@ -1047,7 +1056,8 @@
     "6",
     "1",
     "11",
-    "13"
+    "13",
+    "14"
   ],
   "KNOWN_JAPAN_URL": [
     "https://www.pokemonunite.jp/ja/pokemon/210715_01/",
