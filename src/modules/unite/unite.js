@@ -239,7 +239,7 @@ const eShopInit = (client) => {
       res.on('data', chunk => str += chunk);
       res.on('end', () => {
         const results = JSON.parse(str)
-        if (results.prices[0].sales_status === "onsale") {
+        if (results.prices[0].sales_status === "onsale" && !uniteConfig[`${key}_RELEASED`]) {
           uniteConfig[`${key}_RELEASED`] = true;
           setUniteConfig(`${key}_RELEASED`, true);
           clearInterval(requestIntervals[index]);
@@ -250,7 +250,7 @@ const eShopInit = (client) => {
           client.channels.fetch(uniteConfig.ESHOP.channel)
             .then((channel) => {
               channel.send(embed);
-              channel.send(`<@${uniteConfig.ESHOP.mention}>`);
+              user.send(`<@${uniteConfig.ESHOP.mention}>`);
             });
         }
       });
