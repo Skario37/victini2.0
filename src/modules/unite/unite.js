@@ -264,10 +264,13 @@ const eShopInit = (client) => {
     uniteConfig.ESHOP.interval
   );
 
-  https.get(uniteConfig.ESHOP.FR, res => callback("FR", index, res))
+  const interval2 = undefined;
+  const index2 = requestIntervals.push(interval2) - 1;
+
+  https.get(uniteConfig.ESHOP.FR, res => callback("FR", index2, res))
     .on("error", (e) => error(e));
-  requestIntervals[index] = setInterval(
-    () => https.get(uniteConfig.ESHOP.FR, res => callback("FR", index, res)).on("error", (e) => error(e)),
+  requestIntervals[index2] = setInterval(
+    () => https.get(uniteConfig.ESHOP.FR, res => callback("FR", index2, res)).on("error", (e) => error(e)),
     uniteConfig.ESHOP.interval
   );
 }
