@@ -27,13 +27,13 @@
   },
   "ESHOP": {
     "channel": "866997211161559091",
-    "mention": "177125407353470976",
+    "mention": "142729481273081856",
     "FR": "https://api.ec.nintendo.com/v1/price?country=FR&lang=fr&ids=70010000043293",
     "JP": "https://api.ec.nintendo.com/v1/price?country=JP&lang=jp&ids=70010000043291",
     "interval": 60000
   },
-  "FR_RELEASED": false,
-  "JP_RELEASED": false,
+  "FR_RELEASED": true,
+  "JP_RELEASED": true,
   "POKEMON": [
     "bulbasaur",
     "ivysaur",
@@ -1048,7 +1048,9 @@
     "eldegoss",
     "cramorant",
     "alolan-ninetales",
-    "zeraora"
+    "zeraora",
+    "gardevoir",
+    "blissey"
   ],
   "KNOWN_JAPAN_NEWS_ID": [
     "2",
@@ -1057,7 +1059,13 @@
     "1",
     "11",
     "13",
-    "14"
+    "14",
+    "16",
+    "15",
+    "18",
+    "19",
+    "17",
+    "20"
   ],
   "KNOWN_JAPAN_URL": [
     "https://www.pokemonunite.jp/ja/pokemon/210715_01/",
@@ -1069,6 +1077,8 @@
     "https://www.pokemonunite.jp/ja/pokemon/210715_07/",
     "https://www.pokemonunite.jp/ja/pokemon/210715_08/",
     "https://www.pokemonunite.jp/ja/pokemon/210715_09/",
-    "https://www.pokemonunite.jp/ja/pokemon/210715_10/"
+    "https://www.pokemonunite.jp/ja/pokemon/210715_10/",
+    "https://www.pokemonunite.jp/ja/pokemon/210818_01/",
+    "https://www.pokemonunite.jp/ja/pokemon/210818_02/"
   ]
 }
