@@ -1,8 +1,8 @@
 exports.getMember = async (message, args) => {
-  if (message.channel.type === "dm") return;
+  if (message.channel.type === "DM") return;
   let member = undefined;
   if (args.length) {
-    member = message.guild.member(message.mentions.users.first()) // By mention
+    member = message.guild.member.cache.get(message.mentions.users.first()) // By mention
     
     if (!member) {
       const argId = args[0];
@@ -43,7 +43,8 @@ exports.getRole = async (message, args) => {
 
 exports.getGuildById = async (client, guildId) => {
   // try to get guild from all the shards
-  const req = await client.shard.broadcastEval(`this.guilds.cache.get("${guildId}")`);
+  client.temp = guildId; // bad, really bad to do REALLY
+  const req = await client.shard.broadcastEval(client => client.guilds.cache.get(client.temp));
 
   // return Guild or null if not found
   return req.find(res => !!res) || null;

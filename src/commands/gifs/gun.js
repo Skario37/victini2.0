@@ -82,12 +82,12 @@ exports.run = async (client, message, args, settings) => {
     embed.setImage(gifs[getRandomInt(0, gifs.length)]);
 
 
-    return message.lineReplyNoMention(embed).catch(e => {});
+    return message.reply({embeds: [embed], allowedMentions: { repliedUser: false}}).catch(e => {});
   } else {
-    return message.lineReplyNoMention(i18n("GIF_NOT_FOUND", settings.language))
+    return message.reply({content: i18n("GIF_NOT_FOUND", settings.language),allowedMentions: { repliedUser: false}})
     .then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   }
 

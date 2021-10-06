@@ -59,7 +59,7 @@ const dotcomImagesInit = async (client) => {
       embed.setFooter("Is now accessible.");
 
       client.channels.fetch(uniteConfig.DOTCOM_IMAGES.channel)
-        .then((channel) => channel.send(embed));
+        .then((channel) => channel.send({embeds:[embed]}));
     }
   };
 
@@ -111,7 +111,7 @@ const dotcomPokemonInit = async (client) => {
       embed.setFooter("Is now accessible.");
 
       client.channels.fetch(uniteConfig.DOTCOM_POKEMON.channel)
-        .then((channel) => channel.send(embed));
+        .then((channel) => channel.send({embeds:[embed]}));
     }
   };
 
@@ -161,7 +161,7 @@ const japanNewsInit = (client) => {
           embed.setFooter(`Starting: ${nw.start_date}`);
 
           client.channels.fetch(uniteConfig.JAPAN_NEWS.channel)
-            .then((channel) => channel.send(embed));
+            .then((channel) => channel.send({embeds:[embed]}));
         }
       });
     }
@@ -202,7 +202,7 @@ const japanPokemonInit = (client) => {
           embed.setFooter("Is now accessible.");
 
           client.channels.fetch(uniteConfig.JAPAN_POKEMON.channel)
-            .then((channel) => channel.send(embed));
+            .then((channel) => channel.send({embeds:[embed]}));
         }
         let numberStr = url.slice(-3);
         numberStr = numberStr.substring(numberStr.length - 1, -1);
@@ -249,8 +249,8 @@ const eShopInit = (client) => {
 
           client.channels.fetch(uniteConfig.ESHOP.channel)
             .then((channel) => {
-              channel.send(embed);
-              user.send(`<@${uniteConfig.ESHOP.mention}>`);
+              channel.send({embeds:[embed]});
+              user.send({content:`<@${uniteConfig.ESHOP.mention}>`});
             });
         }
       });

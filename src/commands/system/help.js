@@ -58,7 +58,7 @@ exports.run = (client, message, args, settings) => {
     embed.setTitle(i18n("HELP_NO_TITLE", settings.language));
     embed.setDescription(i18n("HELP_NO_DESCRIPTION", settings.language));
     embed.setFooter(i18n("HELP_FOOTER", settings.language).replace("{{variable}}", currentPage));
-    return message.channel.send(embed).then(msg => msg.delete({"timeout": 10000}).catch(e => {}));
+    return message.channel.send({embeds:[embed]}).then(msg => setTimeout(() => msg.delete(), 10000).catch(e => {}));
   // Equals or more than one page; let's read!
   } else if (book.length >= 1) {
     const setBookPage = (embed, book, currentPage) => {
@@ -80,9 +80,9 @@ exports.run = (client, message, args, settings) => {
     
     setBookPage(embed, book, currentPage);
 
-    message.channel.send(embed).then(msg => {
+    message.channel.send({embeds:[embed]}).then(msg => {
       const timeout = 5 * 60 * 1000;
-      if (book.length === 1) return msg.delete({timeout}).catch(e => {});
+      if (book.length === 1) return setTimeout(msg.delete().catch(e => {}), timeout);
 
       const reactArray = [];
 

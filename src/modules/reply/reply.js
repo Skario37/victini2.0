@@ -67,13 +67,13 @@ const reply = (client, message) => {
 
   reply += "!";
 
-  message.lineReplyNoMention(reply);
+  message.reply({content: reply, allowedMentions: { repliedUser: false}});
 }
 
 exports.init = (client) => {
   this.conf.unsubscribed = false;
   onMessage = reply.bind(null, client);
-  client.on("message", onMessage);
+  client.on("messageCreate", onMessage);
 }
 
 exports.commands = []
@@ -86,5 +86,5 @@ exports.conf = {
 
 exports.unsubscribe = (client) => {
   this.conf.unsubscribed = true;
-  client.off("message", onMessage);
+  client.off("messageCreate", onMessage);
 }

@@ -1,1 +1,1 @@
-module.exports = (client, error, shardID) => {}
+module.exports = (client, error, shardId) => {}

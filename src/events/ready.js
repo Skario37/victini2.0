@@ -9,9 +9,7 @@ module.exports = async (client) => {
   // Log that the bot is online.
   if (client.env === "PROD") {
     client.users.fetch(Config.OWNER.id).then(user => {
-      user.send(
-        i18n("READY_MESSAGE", Config.DEFAULTSETTINGS.language)
-      );
+      user.send({content:i18n("READY_MESSAGE", Config.DEFAULTSETTINGS.language)});
     }).catch(() => {
       error(i18n("ERROR_OWNER_NOTFOUND", Config.DEFAULTSETTINGS.language));
     });

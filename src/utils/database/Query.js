@@ -65,7 +65,7 @@ exports.getLinksGuildUserIds = (client, guildId, userId) => {
 exports.insertGuild = (client, guild) => {
   return client.pool.query(`INSERT INTO db_guild("id", "name", "conf") VALUES('${guild.id}', '${guild.name}', '${JSON.stringify(guild.conf)}')`)
   .then(() => {
-    log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", `insertGuild(${guild.id}, ${guild.name}, ${guild.conf})`));
+    log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", `insertGuild(${guild.id}, ${guild.username}, ${guild.conf})`));
   })
   .catch(err => {
     warn(i18n("DB_ERROR", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "insertGuild " + err));
@@ -76,7 +76,7 @@ exports.insertGuild = (client, guild) => {
 exports.insertUser = (client, user) => {
   return client.pool.query(`INSERT INTO db_user("id", "name", "conf") VALUES('${user.id}', '${user.username}', '${JSON.stringify(user.conf)}')`)
   .then(() => {
-    log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", `insertUser(${user.id}, ${user.name}, ${user.conf})`));
+    log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", `insertUser(${user.id}, ${user.username}, ${user.conf})`));
   })
   .catch(err => {
     warn(i18n("DB_ERROR", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "insertUser " + err));

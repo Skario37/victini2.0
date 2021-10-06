@@ -4,12 +4,12 @@ const Emoji = require("../../pictogram/emoji.json");
 const { getEmbedColor } = require("../../utils/Functions");
 
 exports.run = async (client, message, args, settings) => {
-  const msg = await message.channel.send(
-    {
+  const msg = await message.channel.send({
+    content: {
       "ping": i18n("PING_WAIT", settings.language), 
       "pong": i18n("PONG_WAIT", settings.language)
     }[message.commandName]
-  );
+  });
 
   const botPing = msg.createdTimestamp - message.createdTimestamp;
   const apiPing = Math.round(client.ws.ping);
@@ -53,7 +53,7 @@ exports.run = async (client, message, args, settings) => {
         .replace("{{emoji}}", Emoji.VICTINI.text)
     )
   }
-  msg.edit(embed);
+  msg.edit({embeds:[embed]});
 };
 
 exports.conf = {

@@ -6,14 +6,14 @@ const { getGuildById, getUserById } = require("../Guild");
 exports.checkGuilds = async (client) => {
   const ids = (await getGuildsIds(client))?.rows;
   if (!ids) return;
-  client.shard.fetchClientValues('guilds.cache')
+  await client.shard.fetchClientValues('guilds.cache')
     .then(async (guilds) => {
-      for (let guild of guilds) {
-        if (!ids.includes(guild[0].id)) {
-          await this.insertGuild(client, guild[0]);
+      for (let guild of guilds[0]) {
+        if (!ids.includes(guild.id)) {
+          await this.insertGuild(client, guild);
         }
-        const users = await this.checkGuildMembers(client, guild[0]);
-        this.insertLinkGuildUsers(client, guild[0], users)
+        const users = await this.checkGuildMembers(client, guild);
+        await this.insertLinkGuildUsers(client, guild, users)
       }
     });
 }
@@ -41,7 +41,7 @@ exports.insertGuild = async (client, guild, conf) => {
 
 exports.insertLinkGuildUsers = async (client, guild, users) => {
   for (let user of users) {
-    insertLinkGuildUser(client, guild.id, user);
+    await insertLinkGuildUser(client, guild.id, user);
   }
 }
 

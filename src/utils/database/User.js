@@ -7,7 +7,6 @@ exports.insertUser = async (client, user, conf) => {
   else if (!user.conf) {
     user.conf = Config.USERDEFAULTSETTINGS;
   }
-  
   return insertUser(client, user);
 }
 

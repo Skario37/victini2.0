@@ -32,20 +32,20 @@ module.exports = async (client, message) => {
   // Check wheter the command, or alias, exist in the collections
   const command = client.commands.get(message.commandName) || client.commands.get(client.aliases.get(message.commandName))
   if (!command) {
-    return message.lineReplyNoMention(i18n("UNKNOWN_COMMAND", settings.language))
+    return message.reply({content: i18n("UNKNOWN_COMMAND", settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
+        setTimeout(() => message.delete().catch(e => {}), 10000);
+        setTimeout(() => msg.delete().catch(e => {}), 10000);
       });
   }
 
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
   if (!message.guild && command.help.guildOnly) {
-    return message.channel.send(i18n("UNAVAILABLE_COMMAND", settings.language))
+    return message.channel.send({content:i18n("UNAVAILABLE_COMMAND", settings.language)})
       .then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
+        setTimeout(() => message.delete().catch(e => {}), 10000);
+        setTimeout(() => msg.delete().catch(e => {}), 10000);
       });
   }
 
@@ -54,19 +54,19 @@ module.exports = async (client, message) => {
   // Check for authorized command
   if (message.author.permLevel < getCommandPerm(command.conf.permLevel)) {
     if (settings.systemNotice === "true") {
-      return message.lineReplyNoMention(
-        i18n("PERM_NOTICE", settings.language)
+      return message.reply({
+        content: i18n("PERM_NOTICE", settings.language)
           .replace("{{permName}}", getPermNameByLevel(message.author.permLevel))
-          .replace("{{commandPermName}}", command.conf.permLevel)
-      ).then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
+          .replace("{{commandPermName}}", command.conf.permLevel), allowedMentions: { repliedUser: false}
+      }).then(msg => {
+        setTimeout(() => message.delete().catch(e => {}), 10000);
+        setTimeout(() => msg.delete().catch(e => {}), 10000);
       });
     } else {
-      return message.lineReplyNoMention(i18n("UNAUTHORIZED_COMMAND", settings.language))
+      return message.reply({content: i18n("UNAUTHORIZED_COMMAND", settings.language), allowedMentions: { repliedUser: false}})
         .then(msg => {
-          message.delete({"timeout": 10000}).catch(e => {});
-          msg.delete({"timeout": 10000}).catch(e => {});
+          setTimeout(() => message.delete().catch(e => {}), 10000);
+          setTimeout(() => msg.delete().catch(e => {}), 10000);
         });
     }
   }
@@ -86,12 +86,14 @@ module.exports = async (client, message) => {
 
       if (timeNow < cdExpirationTime) {
         timeLeft = cdExpirationTime - timeNow;
-        return message.lineReplyNoMention(
-          i18n("COOLDOWN_COMMAND", settings.language)
-            .replace("{{variable}}", Math.floor(timeLeft / 1000))
-        ).then(msg => {
-          message.delete({"timeout": timeLeft}).catch(e => {});
-          msg.delete({"timeout": timeLeft}).catch(e => {});
+        return message.reply({
+          content: i18n("COOLDOWN_COMMAND", settings.language)
+            .replace("{{variable}}", Math.floor(timeLeft / 1000)), allowedMentions: { repliedUser: false}
+        }).then(msg => {
+          setTimeout(() => {
+            message.delete().catch(e => {})
+            msg.delete().catch(e => {});
+          }, timeLeft);
         });
       }
     }

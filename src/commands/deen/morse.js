@@ -13,9 +13,9 @@ exports.run = async (client, message, args, settings) => {
       .replace("{{prefix}}", settings.prefix)
       .replace("{{usage}}", this.help(settings.language).usage);
 
-    return message.lineReplyNoMention(text).then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+    return message.reply({content: text, allowedMentions: { repliedUser: false}}).then(msg => {
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   };
 
@@ -37,7 +37,7 @@ exports.run = async (client, message, args, settings) => {
     deen
   )
 
-  return message.lineReplyNoMention(embed).catch(e => {});
+  return message.reply({embeds: [embed], allowedMentions: { repliedUser: false}}).catch(e => {});
 };
 
 exports.conf = {

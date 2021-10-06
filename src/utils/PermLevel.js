@@ -45,7 +45,7 @@ const permlevelSettings = [
     // If they don't then return false, which will prevent them from executing the command.
     check: (message, settings) => {
       try {
-        const modRole = message.guild.roles.cache.get(settings.modRoleID);
+        const modRole = message.guild.roles.cache.get(settings.modRoleId);
         if (modRole && message.member.roles.cache.get(modRole.id)) return true;
       } catch (e) {
         return false;
@@ -57,7 +57,7 @@ const permlevelSettings = [
     name: "Administrator", 
     check: (message, settings) => {
       try {
-        const adminRole = message.guild.roles.cache.get(settings.adminRoleID);
+        const adminRole = message.guild.roles.cache.get(settings.adminRoleId);
         return (adminRole && message.member.roles.cache.get(adminRole.id));
       } catch (e) {
         return false;
@@ -67,9 +67,9 @@ const permlevelSettings = [
   // This is the server owner.
   { level: 4,
     name: "Server Owner", 
-    // Simple check, if the guild owner id matches the message author's ID, then it will return true.
+    // Simple check, if the guild owner id matches the message author's Id, then it will return true.
     // Otherwise it will return false.
-    check: (message, user) => message.channel.type === "text" ? (message.guild.ownerID === user.id ? true : false) : false
+    check: (message, user) => message.channel.type === "GUILD_TEXT" ? (message.guild.ownerId === user.id ? true : false) : false
   },
 
   // Bot Support is a special inbetween level that has the equivalent of server owner access

@@ -53,7 +53,7 @@ exports.run = async (client, message, args, settings) => {
       .replace("{{variable}}", something)
   );
 
-  return message.lineReplyNoMention(embed).catch(e => {});
+  return message.reply({embeds: [embed], allowedMentions: { repliedUser: false}}).catch(e => {});
 };
 
 exports.conf = {

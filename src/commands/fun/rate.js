@@ -31,7 +31,7 @@ exports.run = async (client, message, args, settings) => {
     text
   )
 
-  return message.lineReplyNoMention(embed).catch(e => {});
+  return message.reply({embeds: [embed], allowedMentions: { repliedUser: false}}).catch(e => {});
 };
 
 exports.conf = {

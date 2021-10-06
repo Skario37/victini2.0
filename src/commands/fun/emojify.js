@@ -11,9 +11,9 @@ exports.run = async (client, message, args, settings) => {
       .replace("{{prefix}}", settings.prefix)
       .replace("{{usage}}", this.help(settings.language).usage);
 
-    return message.lineReplyNoMention(text).then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+    return message.reply({content: text, allowedMentions: { repliedUser: false}}).then(msg => {
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   }
 
@@ -98,12 +98,12 @@ exports.run = async (client, message, args, settings) => {
     }
   }
 
-  message.lineReplyNoMention(emojified).catch(e => {
-    message.lineReplyNoMention(
-      i18n("ERROR_EMOJIFY_TOO_LONG", settings.language))
+  message.reply({content: emojified, allowedMentions: { repliedUser: false}}).catch(e => {
+    message.reply({
+      content: i18n("ERROR_EMOJIFY_TOO_LONG", settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => {
-        message.delete({"timeout": 10000}).catch(e => {});
-        msg.delete({"timeout": 10000}).catch(e => {});
+        setTimeout(() => message.delete().catch(e => {}), 10000);
+        setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   });
 };

@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, settings) => {
 
   const promises = [
     client.shard.fetchClientValues('guilds.cache.size'),
-    client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+    client.shard.broadcastEval(client => client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)),
   ];
 
   const total = await Promise.all(promises)
@@ -64,7 +64,7 @@ module.exports.run = async (client, message, args, settings) => {
     }
   );
 
-  message.lineReplyNoMention(embed).catch(e => {});
+  message.reply({embeds: [embed], allowedMentions: { repliedUser: false}}).catch(e => {});
 };
 
 exports.conf = {

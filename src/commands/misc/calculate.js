@@ -12,9 +12,9 @@ exports.run = (client, message, args, settings) => {
       .replace("{{prefix}}", settings.prefix)
       .replace("{{usage}}", this.help(settings.language).usage);
 
-    return message.lineReplyNoMention(text).then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+    return message.reply({content: text, allowedMentions: { repliedUser: false}}).then(msg => {
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   }
 
@@ -22,19 +22,19 @@ exports.run = (client, message, args, settings) => {
   try {
     result = Math.evaluate(args.join(" "));
   } catch (e) {
-    return message.lineReplyNoMention(i18n("ERROR_CALC_FAILED", settings.language)).then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+    return message.reply({content: i18n("ERROR_CALC_FAILED", settings.language), allowedMentions: { repliedUser: false}}).then(msg => {
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   }
 
   if (isNaN(parseFloat(result))) {
-    return message.lineReplyNoMention(i18n("ERROR_CALC_INVALID", settings.language)).then(msg => {
-      message.delete({"timeout": 10000}).catch(e => {});
-      msg.delete({"timeout": 10000}).catch(e => {});
+    return message.reply({content: i18n("ERROR_CALC_INVALID", settings.language), allowedMentions: { repliedUser: false}}).then(msg => {
+      setTimeout(() => message.delete().catch(e => {}), 10000);
+      setTimeout(() => msg.delete().catch(e => {}), 10000);
     });
   } else {
-    return message.lineReplyNoMention(i18n("SUCCESS_CALC_EXPRESSION", settings.language).replace("{{variable}}", result));
+    return message.reply({content: i18n("SUCCESS_CALC_EXPRESSION", settings.language).replace("{{variable}}", result), allowedMentions: { repliedUser: false}});
   }
 
 };
