@@ -47,5 +47,16 @@
 
     "language": "FR",
     "languageForced": "false"
+  },
+
+  "USERDEFAULTSETTINGS": {
+    "prefix": "v.",
+    
+    "systemNotice": "true",
+
+    "embedColor": "#FFCC66",
+    "embedColorEnabled": "false",
+
+    "language": "FR"
   }
 }

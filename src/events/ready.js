@@ -3,8 +3,9 @@ const error = require("../utils/Logger").error;
 const log = require("../utils/Logger").log;
 const Config = require("../config.json");
 const Loader = require("../utils/Loader");
+const { checkGuilds } = require("../utils/database/Guild");
 
-module.exports = (client) => {
+module.exports = async (client) => {
   // Log that the bot is online.
   if (client.env === "PROD") {
     client.users.fetch(Config.OWNER.id).then(user => {
@@ -27,6 +28,10 @@ module.exports = (client) => {
       i18n("SET_ACTIVITY_DEV", Config.DEFAULTSETTINGS.language), 
       {type: "PLAYING"});
   }
+
+  log(i18n("DB_STARTING", Config.DEFAULTSETTINGS.language));
+  await checkGuilds();
+  log(i18n("DB_STARTED", Config.DEFAULTSETTINGS.language));
 
   Loader.loadModules(client);
   log(i18n("READY_MESSAGE", Config.DEFAULTSETTINGS.language), "ready");

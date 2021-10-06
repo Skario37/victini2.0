@@ -12,6 +12,12 @@
   "ALL_COMMAND_UNLOADED": "All commands unloaded.",
   "ALL_COMMAND_RELOADED": "All commands reloaded.",
 
+  "DB_ERROR": "Database - An error has occured: {{variable}}",
+  "DB_SUCCESS": "Database - Success: {{variable}}",
+  "DB_FAIL": "Database - Fail: {{variable}}",
+  "DB_STARTING": "Starting database...",
+  "DB_STARTED": "Complete!",
+
   "EVENT_LOADED": "Event loaded: {{variable}}",
 
   "MODULE_LOADED": "Module loaded: {{variable}}",

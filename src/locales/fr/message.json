@@ -12,6 +12,12 @@
   "ALL_COMMAND_UNLOADED": "Toutes les commandes ont été déchargées.",
   "ALL_COMMAND_RELOADED": "Toutes les commandes ont été rechargées.",
 
+  "DB_ERROR": "Base de données - Une erreur est survenue : {{variable}}",
+  "DB_SUCCESS": "Base de données - Succès : {{variable}}",
+  "DB_FAIL": "Base de données - Échec : {{variable}}",
+  "DB_STARTING": "Démarrage de la base de données...",
+  "DB_STARTED": "Complet !",
+
   "EVENT_LOADED": "Événement chargé : {{variable}}",
 
   "MODULE_LOADED": "Module chargé : {{variable}}",
