@@ -12,15 +12,6 @@ module.exports = async (client, message) => {
   // No bot please
   if (message.author.bot) return
 
-  // Add guild user if not exists
-  // if (message.channel.type != "dm") {
-  //   const guildUser = await client.database.getGuildUser(message.author.id)
-  //   if (!guildUser) await client.database.setGuildUser(message.author)
-  // }
-  // Now create user if not exists
-  // const user = await client.database.getUser(message.author.id)
-  // if (!user) await client.database.createUser(message.author) 
-
   // Get guild settings and|or [merge] with user settings
   // const settings = mergeSettings(
   //   await client.database.getGuildConf(message.guild),

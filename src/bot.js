@@ -2,7 +2,7 @@ const Client = require("discord.js").Client;
 require('discord-reply');
 const Collection = require("discord.js").Collection;
 const Loader = require("./utils/Loader");
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 
 /**
  * Main function
@@ -10,7 +10,7 @@ const { Pool } = require('pg')
 (() => {
   // Configure VICTINI as the whole application
   const client = new Client({
-    partials: ["USER", "MESSAGE", /*"CHANNEL",*/ "REACTION"],
+    partials: ["USER", "MESSAGE", "GUILD_MEMBER", "CHANNEL", "REACTION"],
     ws: { 
       intents: [
         "GUILDS", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_VOICE_STATES", "GUILD_PRESENCES", 
@@ -27,10 +27,6 @@ const { Pool } = require('pg')
   client.cooldowns = new Collection();
   client.modules = new Collection();
 
-  // Load Commands and Events files
-  Loader.loadCommands(client);
-  Loader.loadEvents(client);
-
   client.pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -38,6 +34,10 @@ const { Pool } = require('pg')
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
   });
+
+  // Load Commands and Events files
+  Loader.loadCommands(client);
+  Loader.loadEvents(client);
 
   // Log bot into Discord
   client.login(process.env.TOKEN);

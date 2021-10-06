@@ -14,7 +14,7 @@ const { i18n } = require("../../utils/i18n");
 const Emoji = require("../../pictogram/emoji.json");
 const { MessageEmbed } = require("discord.js");
 const { getEmbedColor } = require("../../utils/Functions");
-const { getMember } = require("../../utils/Guild");
+const { getRole, getMember } = require("../../utils/Guild");
 const { getRandomInt } = require("../../utils/Math");
 
 exports.run = async (client, message, args, settings) => {

@@ -40,3 +40,15 @@ exports.getRole = async (message, args) => {
 		return await message.guild.roles.fetch(args).catch(e => undefined);
 	}
 }
+
+exports.getGuildById = async (client, guildId) => {
+  // try to get guild from all the shards
+  const req = await client.shard.broadcastEval(`this.guilds.cache.get("${guildId}")`);
+
+  // return Guild or null if not found
+  return req.find(res => !!res) || null;
+}
+
+exports.getUserById = async (client, userId) => {
+  return await client.users.fetch(userId).then(user => user);
+}

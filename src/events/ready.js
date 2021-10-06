@@ -30,7 +30,7 @@ module.exports = async (client) => {
   }
 
   log(i18n("DB_STARTING", Config.DEFAULTSETTINGS.language));
-  await checkGuilds();
+  await checkGuilds(client);
   log(i18n("DB_STARTED", Config.DEFAULTSETTINGS.language));
 
   Loader.loadModules(client);

@@ -4,7 +4,14 @@ const Config = require("./../../config.json");
 
 exports.insertUser = async (client, user, conf) => {
   if (conf) user.conf = conf;
-  else if (!guild.conf) user.conf = Config.USERDEFAULTSETTINGS;
-
+  else if (!user.conf) {
+    user.conf = Config.USERDEFAULTSETTINGS;
+  }
+  
   return insertUser(client, user);
+}
+
+exports.userExists = async (client, userId) => {
+  if (await getUserId(client, userId)?.row.length > 0) return true;
+  else return false;
 }
