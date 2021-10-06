@@ -993,7 +993,9 @@
     "cinderace",
     "eldegoss",
     "cramorant",
-    "alolan-ninetales"
+    "alolan-ninetales",
+    "mamoswine",
+    "sylveon"
   ],
   "KNOWN_SUB_POKEMON": [
     "bulbasaur",
@@ -1050,7 +1052,10 @@
     "alolan-ninetales",
     "zeraora",
     "gardevoir",
-    "blissey"
+    "blissey",
+    "blastoise",
+    "mamoswine",
+    "sylveon"
   ],
   "KNOWN_JAPAN_NEWS_ID": [
     "2",
@@ -1065,7 +1070,13 @@
     "18",
     "19",
     "17",
-    "20"
+    "20",
+    "22",
+    "24",
+    "25",
+    "26",
+    "27",
+    "21"
   ],
   "KNOWN_JAPAN_URL": [
     "https://www.pokemonunite.jp/ja/pokemon/210715_01/",
