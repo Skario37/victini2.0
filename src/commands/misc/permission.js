@@ -32,7 +32,7 @@ exports.run = async (client, message, args, settings) => {
 
   embed.setImage(user.displayAvatarURL());
 
-  message.channel.send({embeds: [embed]});
+  message.reply({embeds: [embed], allowedMentions: { repliedUser: false}});
 };
 
 exports.conf = {

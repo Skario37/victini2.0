@@ -26,17 +26,17 @@ exports.promptMessage = async (message, author, time, reactArray) => {
 }
 
 exports.bookingMessage = async (message, author, time, reactArray, events) => {
-  for (const reaction of reactArray) await message.react(reaction);
+  for (const reaction of reactArray) message.react(reaction);
 
   const authorFilter = (reaction, user) => reactArray.includes(reaction.emoji.name) && user.id === author.id;
-  const authorCollector = message.createReactionCollector(authorFilter, {time});
+  const authorCollector = message.createReactionCollector({"filter": authorFilter, "idle": time});
 
   const intrudersFilter = (reaction) => !reactArray.includes(reaction.emoji.name);
-  const intrudersCollector = message.createReactionCollector(intrudersFilter, {time});
+  const intrudersCollector = message.createReactionCollector({"filter": intrudersFilter, "idle": time});
   intrudersCollector.on("collect", (reaction) => reaction.remove());
   
   const removedFilter = (reaction) => reactArray.includes(reaction.emoji.name);
-  const removedCollector = message.createReactionCollector(removedFilter, {time, "dispose": true});
+  const removedCollector = message.createReactionCollector({"filter": removedFilter, "idle": time, "dispose": true});
   removedCollector.on("remove", (reaction) => message.react(reaction.emoji.name));
 
   for (const event in events) {

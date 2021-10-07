@@ -42,7 +42,7 @@ module.exports = async (client, message) => {
   // Some commands may not be useable in DMs. This check prevents those commands from running
   // and return a friendly error message.
   if (!message.guild && command.help.guildOnly) {
-    return message.channel.send({content:i18n("UNAVAILABLE_COMMAND", settings.language)})
+    return message.reply({content:i18n("UNAVAILABLE_COMMAND", settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => {
         setTimeout(() => message.delete().catch(e => {}), 10000);
         setTimeout(() => msg.delete().catch(e => {}), 10000);

@@ -39,7 +39,7 @@ exports.loadCommands = (client, args) => {
 
   if (args?.reload) {
     log(i18n("ALL_COMMAND_RELOADED", Config.DEFAULTSETTINGS.language));
-    args.message.channel.send({content:i18n("ALL_COMMAND_RELOADED", args.settings.language)})
+    args.message.reply({content:i18n("ALL_COMMAND_RELOADED", args.settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
   }
 }
@@ -78,9 +78,9 @@ exports.loadCommand = (client, message, settings, commandName) => {
       warn(
         i18n("COMMAND_NOTFOUND", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", commandName));
-      return message.channel.send({
+      return message.reply({
         content: i18n("COMMAND_NOTFOUND", settings.language)
-          .replace("{{variable}}", commandName)
+          .replace("{{variable}}", commandName), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
  
@@ -100,9 +100,9 @@ exports.loadCommand = (client, message, settings, commandName) => {
           i18n("COMMAND_RELOADED", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", command.conf.name));
         if (message) {
-          message.channel.send({
+          message.reply({
             content: i18n("COMMAND_RELOADED", settings.language)
-              .replace("{{variable}}", command.conf.name)
+              .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
           }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
         }
       } else {
@@ -110,9 +110,9 @@ exports.loadCommand = (client, message, settings, commandName) => {
           i18n("COMMAND_LOADED", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", command.conf.name));
         if (message) {
-          message.channel.send({
+          message.reply({
             content: i18n("COMMAND_LOADED", settings.language)
-              .replace("{{variable}}", command.conf.name)
+              .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
           }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
         }
       }
@@ -121,9 +121,9 @@ exports.loadCommand = (client, message, settings, commandName) => {
         i18n("COMMAND_NOTLOADED", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", command.conf.name));
       if (message) {
-        message.channel.send({
+        message.reply({
           content: i18n("COMMAND_NOTLOADED", settings.language)
-            .replace("{{variable}}", command.conf.name)
+            .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
       }
     }
@@ -150,9 +150,9 @@ exports.unloadCommand = (client, message, settings, commandName) => {
         warn(
           i18n("COMMAND_NOTFOUND", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", commandName));
-        return message.channel.send({
+        return message.reply({
           content: i18n("COMMAND_NOTFOUND", settings.language)
-            .replace("{{variable}}", commandName)
+            .replace("{{variable}}", commandName), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
       }
       delete require.cache[require.resolve(`${SUB_COMMAND_DIR}\/${dirs}\/${file}`)];
@@ -162,9 +162,9 @@ exports.unloadCommand = (client, message, settings, commandName) => {
       i18n("COMMAND_UNLOADED", Config.DEFAULTSETTINGS.language)
         .replace("{{variable}}", commandName));
     if (message) {
-      message.channel.send({
+      message.reply({
         content: i18n("COMMAND_UNLOADED", settings.language)
-          .replace("{{variable}}", commandName)
+          .replace("{{variable}}", commandName), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
   } else {
@@ -172,9 +172,9 @@ exports.unloadCommand = (client, message, settings, commandName) => {
       i18n("COMMAND_NOTLOADED", Config.DEFAULTSETTINGS.language)
         .replace("{{variable}}", commandName));
     if (message) {
-      message.channel.send({
+      message.reply({
         content: i18n("COMMAND_NOTLOADED", settings.language)
-          .replace("{{variable}}", commandName)
+          .replace("{{variable}}", commandName), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
   }
@@ -210,9 +210,9 @@ const loadCommandsFromModule = (client, message, settings, module) => {
           i18n("COMMAND_RELOADED", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", command.conf.name));
         if (message) {
-          message.channel.send({
+          message.reply({
             content: i18n("COMMAND_RELOADED", settings.language)
-              .replace("{{variable}}", command.conf.name)
+              .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
           }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
         }
       } else {
@@ -220,9 +220,9 @@ const loadCommandsFromModule = (client, message, settings, module) => {
           i18n("COMMAND_LOADED", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", command.conf.name));
         if (message) {
-          message.channel.send({
+          message.reply({
             content: i18n("COMMAND_LOADED", settings.language)
-              .replace("{{variable}}", command.conf.name)
+              .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
           }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
         }
       }
@@ -231,9 +231,9 @@ const loadCommandsFromModule = (client, message, settings, module) => {
         i18n("COMMAND_NOTLOADED", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", command.conf.name));
       if (message) {
-        message.channel.send({
+        message.reply({
           content: i18n("COMMAND_NOTLOADED", settings.language)
-            .replace("{{variable}}", command.conf.name)
+            .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
       }
     }
@@ -253,9 +253,9 @@ const unloadCommandsFromModule = (client, message, settings, module) => {
         i18n("COMMAND_UNLOADED", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", command.conf.name));
       if (message) {
-        message.channel.send({
+        message.reply({
           content: i18n("COMMAND_UNLOADED", settings.language)
-            .replace("{{variable}}", command.conf.name)
+            .replace("{{variable}}", command.conf.name), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
       }
     }
@@ -289,7 +289,7 @@ exports.loadModules = (client, args = {}) => {
 
   if (args?.reload) {
     log(i18n("ALL_MODULE_RELOADED", Config.DEFAULTSETTINGS.language));
-    args.message.channel.send({content:i18n("ALL_MODULE_RELOADED", args.settings.language)})
+    args.message.reply({content:i18n("ALL_MODULE_RELOADED", args.settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
   }
 }
@@ -309,7 +309,7 @@ exports.reloadModules = (client, message, settings) => {
   });
 
   log(i18n("ALL_MODULE_UNLOADED", Config.DEFAULTSETTINGS.language));
-  message.channel.send({content: i18n("ALL_MODULE_UNLOADED", settings.language)})
+  message.reply({content: i18n("ALL_MODULE_UNLOADED", settings.language), allowedMentions: { repliedUser: false}})
     .then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
 
   this.loadModules(client, {"reload": true, settings, message});
@@ -327,9 +327,9 @@ exports.loadModule = (client, message, settings, moduleName) => {
       warn(
         i18n("MODULE_NOTFOUND", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", moduleName));
-      return message.channel.send({
+      return message.reply({
         content: i18n("MODULE_NOTFOUND", settings.language)
-          .replace("{{variable}}", moduleName)
+          .replace("{{variable}}", moduleName), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
 
@@ -347,17 +347,17 @@ exports.loadModule = (client, message, settings, moduleName) => {
       log(
         i18n("MODULE_LOADED", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", module.conf.name));
-      message.channel.send({
+      message.reply({
         content: i18n("MODULE_LOADED", settings.language)
-          .replace("{{variable}}", module.conf.name)
+          .replace("{{variable}}", module.conf.name), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     } else {
       warn(
         i18n("MODULE_NOTLOADED", Config.DEFAULTSETTINGS.language)
           .replace("{{variable}}", module.conf.name));
-      message.channel.send({
+      message.reply({
         content: i18n("MODULE_NOTLOADED", settings.language)
-          .replace("{{variable}}", module.conf.name)
+          .replace("{{variable}}", module.conf.name), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
   });
@@ -382,9 +382,9 @@ exports.unloadModule = (client, message, settings, moduleName) => {
         warn(
           i18n("MODULE_NOTFOUND", Config.DEFAULTSETTINGS.language)
             .replace("{{variable}}", moduleName));
-        return message.channel.send({
+        return message.reply({
           content: i18n("MODULE_NOTFOUND", settings.language)
-            .replace("{{variable}}", moduleName)
+            .replace("{{variable}}", moduleName), allowedMentions: { repliedUser: false}
         }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
       }
       delete require.cache[require.resolve(`${SUB_MODULE_DIR}\/${dirs}\/${file}`)];
@@ -394,9 +394,9 @@ exports.unloadModule = (client, message, settings, moduleName) => {
       i18n("MODULE_UNLOADED", Config.DEFAULTSETTINGS.language)
         .replace("{{variable}}", moduleName));
     if (message) {
-      message.channel.send({
+      message.reply({
         content: i18n("MODULE_UNLOADED", settings.language)
-          .replace("{{variable}}", moduleName)
+          .replace("{{variable}}", moduleName), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
   } else {
@@ -404,9 +404,9 @@ exports.unloadModule = (client, message, settings, moduleName) => {
       i18n("MODULE_NOTLOADED", Config.DEFAULTSETTINGS.language)
         .replace("{{variable}}", moduleName));
     if (message) {
-      message.channel.send({
+      message.reply({
         content: i18n("MODULE_NOTLOADED", settings.language)
-          .replace("{{variable}}", moduleName)
+          .replace("{{variable}}", moduleName), allowedMentions: { repliedUser: false}
       }).then(msg => setTimeout(() => msg.delete(), 10000)).catch(e => {});
     }
   }

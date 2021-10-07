@@ -4,11 +4,11 @@ const Emoji = require("../../pictogram/emoji.json");
 const { getEmbedColor } = require("../../utils/Functions");
 
 exports.run = async (client, message, args, settings) => {
-  const msg = await message.channel.send({
+  const msg = await message.reply({
     content: {
       "ping": i18n("PING_WAIT", settings.language), 
       "pong": i18n("PONG_WAIT", settings.language)
-    }[message.commandName]
+    }[message.commandName], allowedMentions: { repliedUser: false}
   });
 
   const botPing = msg.createdTimestamp - message.createdTimestamp;

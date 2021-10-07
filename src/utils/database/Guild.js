@@ -1,11 +1,12 @@
-const { getGuildsIds, getUsersIds, insertGuild, insertLinkGuildUser, getGuildId } = require("./Query");
+const { getGuildsIds, getUsersIds, insertGuild, insertLinkGuildUser, getGuildId, getUsersIdsInLinkGuild } = require("./Query");
 const { insertUser } = require("./User");
 const Config = require("./../../config.json");
 const { getGuildById, getUserById } = require("../Guild");
 
 exports.checkGuilds = async (client) => {
-  const ids = (await getGuildsIds(client))?.rows;
-  if (!ids) return;
+  const idsRows = (await getGuildsIds(client))?.rows;
+  if (!idsRows) return;
+  const ids = idsRows.map(({id}) => id);
   await client.shard.fetchClientValues('guilds.cache')
     .then(async (guilds) => {
       for (let guild of guilds[0]) {
@@ -19,8 +20,9 @@ exports.checkGuilds = async (client) => {
 }
 
 exports.checkGuildMembers = async (client, g) => {
-  const ids = (await getUsersIds(client)).rows;
-  if (!ids) return;
+  const idsRows = (await getUsersIds(client))?.rows;
+  if (!idsRows) return;
+  const ids = idsRows.map(({id}) => id);
   const guild = await getGuildById(client, g.id);
   if (!guild) return;
 
@@ -40,8 +42,14 @@ exports.insertGuild = async (client, guild, conf) => {
 }
 
 exports.insertLinkGuildUsers = async (client, guild, users) => {
-  for (let user of users) {
-    await insertLinkGuildUser(client, guild.id, user);
+  const idsRows = (await getUsersIdsInLinkGuild(client, guild.id))?.rows;
+  if (!idsRows) return;
+  const ids = idsRows.map(({user_id}) => user_id);
+  
+  for (let userId of users) {
+    if (!ids.includes(userId)) {
+      await insertLinkGuildUser(client, guild.id, userId);
+    }
   }
 }
 

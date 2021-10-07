@@ -23,10 +23,7 @@ module.exports.run = async (client, message, args, settings) => {
         members: results[1].reduce((acc, memberCount) => acc + memberCount, 0)
       }
     })
-    .catch(e => {
-      error(e);
-      return [-1,-1]
-    });
+    .catch(e => { return { guilds: -1, members: -1 } });
   
   const embed = new MessageEmbed();
   embed.setColor(getEmbedColor(settings));
@@ -44,12 +41,12 @@ module.exports.run = async (client, message, args, settings) => {
     },
     {
       "name": i18n("STATS_GUILDS", settings.language), 
-      "value": total.guilds,
+      "value": total.guilds.toString(),
       "inline": true
     },
     {
       "name": i18n("STATS_USERS", settings.language), 
-      "value": total.members,
+      "value": total.members.toString(),
       "inline": true
     },
     {

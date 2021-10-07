@@ -58,7 +58,7 @@ exports.run = (client, message, args, settings) => {
     embed.setTitle(i18n("HELP_NO_TITLE", settings.language));
     embed.setDescription(i18n("HELP_NO_DESCRIPTION", settings.language));
     embed.setFooter(i18n("HELP_FOOTER", settings.language).replace("{{variable}}", currentPage));
-    return message.channel.send({embeds:[embed]}).then(msg => setTimeout(() => msg.delete(), 10000).catch(e => {}));
+    return message.reply({embeds:[embed], allowedMentions: { repliedUser: false}}).then(msg => setTimeout(() => msg.delete(), 10000).catch(e => {}));
   // Equals or more than one page; let's read!
   } else if (book.length >= 1) {
     const setBookPage = (embed, book, currentPage) => {
@@ -80,7 +80,7 @@ exports.run = (client, message, args, settings) => {
     
     setBookPage(embed, book, currentPage);
 
-    message.channel.send({embeds:[embed]}).then(msg => {
+    message.reply({embeds:[embed], allowedMentions: { repliedUser: false}}).then(msg => {
       const timeout = 5 * 60 * 1000;
       if (book.length === 1) return setTimeout(msg.delete().catch(e => {}), timeout);
 
@@ -110,7 +110,7 @@ exports.run = (client, message, args, settings) => {
       reactArray.reverse();
 
       const events = {
-        "collect": (reaction) => {            
+        "collect": (reaction) => {          
           switch (reaction.emoji.name) {
             case Emoji.LAST_NEXT.name: currentPage = pageMax; break;
             case Emoji.NEXT.name: 
@@ -132,7 +132,7 @@ exports.run = (client, message, args, settings) => {
             case Emoji.LAST_PREVIOUS.name: currentPage = pageMin; break;
           }
           setBookPage(embed, book, currentPage);
-          msg.edit(embed);
+          msg.edit({embeds:[embed]});
         },
         "end": () => msg.delete().catch(e => {})
       }
