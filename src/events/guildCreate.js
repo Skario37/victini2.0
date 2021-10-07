@@ -1,4 +1,4 @@
-const { guildExists, insertGuild } = require("../utils/database/guild");
+const { guildExists, insertGuild } = require("../utils/database/Guild");
 const { insertLinkGuildUser } = require("../utils/database/Query");
 const { insertUser } = require("../utils/database/User");
 

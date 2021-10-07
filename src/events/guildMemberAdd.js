@@ -1,4 +1,4 @@
-const { insertLinkGuildUser } = require("../utils/database/guild");
+const { insertLinkGuildUser } = require("../utils/database/Guild");
 const { userExists, insertUser } = require("../utils/database/User")
 
 module.exports = async (client, member) => {
