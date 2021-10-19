@@ -42,7 +42,7 @@ exports.run = async (client, message, args, settings) => {
     i18n("WHOSTHAT_TITLE", settings.language)
       .replace("{{emoji}}", Emoji.WHOSTHAT.text)
       .replace("{{language}}", game_language)
-      .replace("{{difficulty}}", difficulty)
+      .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
   );
 
   embed.addField( 
@@ -82,7 +82,7 @@ exports.run = async (client, message, args, settings) => {
       images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === HARD) {
-      let rows = await getWhosThatForm()?.rows;
+      let rows = await getWhosThatForm(client)?.rows;
       if (!rows) return;
       rows = rows.filter(filterForm);
       row = rows[getRandomInt(0, rows.length)];
@@ -96,7 +96,7 @@ exports.run = async (client, message, args, settings) => {
       row = specialPokemon(row);
       whos.pokemon = row[`form_${game_language.toLowerCase()}`] ?? row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === VERYHARD) {
-      let rows = await getWhosThatForm()?.rows;
+      let rows = await getWhosThatForm(client)?.rows;
       if (!rows) return;
       rows = rows.filter(filterForm);
       row = rows[getRandomInt(0, rows.length)];
@@ -110,7 +110,7 @@ exports.run = async (client, message, args, settings) => {
       whos.pokemon = row[`form_${game_language.toLowerCase()}`] ?? row[`species_${game_language.toLowerCase()}`];
     }
   
-    whos.image = '/images/' + await getFileSprite(images[getRandomInt(0,images.length)])?.rows;
+    whos.image = '/images/' + await getFileSprite(client, images[getRandomInt(0,images.length)])?.rows;
     if (!whos.image) return;
     whos.color = '#' + row.color;
     whos.pokemon
@@ -119,18 +119,10 @@ exports.run = async (client, message, args, settings) => {
   }
   
   setTimeout(async () => {
-    
-
     const whos = await getWhos();
     if (!whos) return msg.edit({content: i18n("DB_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
     embed.setColor(whos.color);
-    embed.setTitle(
-      i18n("WHOSTHAT_TITLE", settings.language)
-        .replace("{{emoji}}", Emoji.WHOSTHAT.text)
-        .replace("{{language}}", game_language)
-        .replace("{{difficulty}}", difficulty)
-    );
 
     const img = await Jimp.read(whos.image);
     if (difficulty === MEDIUM) img.shadow();
@@ -176,7 +168,7 @@ exports.run = async (client, message, args, settings) => {
             .replace("{{pokemon}}", whos.pokemon)
             .replace("{{time}}", time)
             .replace("{{language}}", game_language)
-            .replace("{{difficulty}}", difficulty)
+            .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
         };
       }
       msg.reply({embeds:[embed]})

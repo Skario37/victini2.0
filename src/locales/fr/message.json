@@ -473,5 +473,10 @@
   "GAME_END_WINNER": "Le gagnant est : {{user}}",
   "WHOSTHAT_END_WINNER": "{{user}} a deviné {{pokemon}} en {{time}} !\nLangue: {{language}}\nDifficulté : {{difficulty}}",
 
-  "SECONDS": "secondes"
+  "SECONDS": "secondes",
+  "DIFFICULTY_0": "Très Facile",
+  "DIFFICULTY_1": "Facile",
+  "DIFFICULTY_2": "Moyen",
+  "DIFFICULTY_3": "Difficile",
+  "DIFFICULTY_4": "Très Difficile"
 }

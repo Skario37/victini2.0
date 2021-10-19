@@ -473,5 +473,10 @@
   "GAME_END_WINNER": "The winner is: {{user}}",
   "WHOSTHAT_END_WINNER": "{{user}} guessed {{pokemon}} in {{time}}!\nLanguage: {{language}}\nDifficulty: {{difficulty}}",
 
-  "SECONDS": "seconds"
+  "SECONDS": "seconds",
+  "DIFFICULTY_0": "Very Easy",
+  "DIFFICULTY_1": "Easy",
+  "DIFFICULTY_2": "Medium",
+  "DIFFICULTY_3": "Hard",
+  "DIFFICULTY_4": "Very Hard"
 }
