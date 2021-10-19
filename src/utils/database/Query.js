@@ -126,10 +126,11 @@ exports.getWhosThatForm = (client) => {
 
 exports.getWhosThatPokemon = (client) => {
   return client.pool.query(`
-    SELECT A.has_gender_difference, A.name_fr AS species_fr, A.name_en AS species_en, B.*, C.hex AS color
-    FROM db_static_pokemon_species AS A
-    INNER JOIN db_static_sprite_pokemon AS B ON A.sprite = B.id
-    INNER JOIN db_static_color AS C ON A.color = C.id
+    SELECT B.has_gender_difference, B.name_fr AS species_fr, B.name_en AS species_en, C.*, D.hex AS color
+    FROM db_static_pokemon AS A
+    INNER JOIN db_static_pokemon_species AS B ON A.species = B.id
+    INNER JOIN db_static_sprite_pokemon AS C ON A.sprite = C.id
+    INNER JOIN db_static_color AS D ON B.color = D.id
   `).then(() => {
     log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatPokemon"));
   })
