@@ -17,6 +17,7 @@
   "DB_FAIL": "Database - Fail: {{variable}}",
   "DB_STARTING": "Starting database...",
   "DB_STARTED": "Complete!",
+  "DB_FAIL_MESSAGE": "Something went wrong with database.",
 
   "EVENT_LOADED": "Event loaded: {{variable}}",
 
@@ -458,5 +459,19 @@
 
   "ERROR_CHOOSE_ARGUMENTS": "Need at least 2 arguments separated by a comma.",
   "CHOOSE_TITLE": "{{emoji}} Among `{{items}}` I will choose...",
-  "CHOOSE_ITEM": "I have chosen: {{variable}}"
+  "CHOOSE_ITEM": "I have chosen: {{variable}}",
+
+  "HELP_WHOSTHAT_NAME": "Who's that",
+  "HELP_WHOSTHAT_CATEGORY": "Pokémaniac",
+  "HELP_WHOSTHAT_DESCRIPTION": "Who's that Pokémon?",
+  "HELP_WHOSTHAT_USAGE": "whosthat [--l=<language>, --veryeasy | --easy | --medium | --hard | --veryhard]",
+
+  "WHOSTHAT_TITLE": "{{emoji}} Who's that Pokémon? Language: {{language}}; Difficulty: {{difficulty}}",
+  "GAME_START_IN": "The game will start in:",
+  "GAME_END_IN": "The game will end in:",
+  "GAME_END_NO_WINNER": "The game ended with no winner.",
+  "GAME_END_WINNER": "The winner is: {{user}}",
+  "WHOSTHAT_END_WINNER": "{{user}} guessed {{pokemon}} in {{time}}!\nLanguage: {{language}}\nDifficulty: {{difficulty}}",
+
+  "SECONDS": "seconds"
 }

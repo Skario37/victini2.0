@@ -11,7 +11,7 @@ const { MessageEmbed } = require("discord.js");
 const { getEmbedColor, bookingMessage } = require("../../utils/Functions");
 const Emoji = require("../../pictogram/emoji.json");
 
-exports.run = (client, message, args, settings) => {
+exports.run = async (client, message, args, settings) => {
   // Filter all commands by which are available for the user's level, using the <Collection>.filter() method.
   const commands = message.guild 
     ? client.commands.filter(command => message.author.permLevel >= getCommandPerm(command.conf.permLevel)) 

@@ -26,7 +26,6 @@ exports.run = async (client, message, args, settings) => {
 
   if (args.length > 1) {
     for (let i = args.length-1; i >= 0; i--) {
-      let subCommand = undefined;
       if (args[i].startsWith("--background=")) {
         background = args.splice(i,1)[0].split("=")[1];
       } else if (args[i].startsWith("--bg=")) {
@@ -35,22 +34,22 @@ exports.run = async (client, message, args, settings) => {
         foreground = args.splice(i,1)[0].split("=")[1];
       } else if (args[i].startsWith("--fg=")) {
         foreground = args.splice(i,1)[0].split("=")[1];
-      } else if (args[i].startsWith("--row")) {
+      } else if (args[i] === "--row") {
         args.splice(i,1)[0];
         row = true;
-      } else if (args[i].startsWith("--r")) {
+      } else if (args[i] === "--r") {
         args.splice(i,1)[0];
         row = true;
-      } else if (args[i].startsWith("--column")) {
+      } else if (args[i] === "--column") {
         args.splice(i,1)[0];
         row = false;
-      } else if (args[i].startsWith("--c")) {
+      } else if (args[i] === "--c") {
         args.splice(i,1)[0];
         row = false;
-      } else if (args[i].startsWith("--flag")) {
+      } else if (args[i] === "--flag") {
         args.splice(i,1)[0];
         flag = true;
-      } else if (args[i].startsWith("--f")) {
+      } else if (args[i] === "--f") {
         args.splice(i,1)[0];
         flag = true;
       }

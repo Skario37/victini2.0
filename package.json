@@ -23,6 +23,7 @@
     "emojify-text": "^2.0.0",
     "gfycat-sdk": "^1.4.18",
     "giphy-api": "^2.0.2",
+    "jimp": "^0.16.1",
     "mathjs": "^9.4.4",
     "md5": "^2.3.0",
     "moment": "^2.29.1",

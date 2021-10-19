@@ -423,5 +423,9 @@
   "MORSE": {
     "name": "📡",
     "text": ":satellite:"
+  },
+  "WHOSTHAT": {
+    "name": "❓",
+    "text": ":question:"
   }
 }

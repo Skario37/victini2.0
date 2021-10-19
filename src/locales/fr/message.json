@@ -17,6 +17,7 @@
   "DB_FAIL": "Base de données - Échec : {{variable}}",
   "DB_STARTING": "Démarrage de la base de données...",
   "DB_STARTED": "Complet !",
+  "DB_FAIL_MESSAGE": "Quelque chose s'est mal passé avec la base de données.",
 
   "EVENT_LOADED": "Événement chargé : {{variable}}",
 
@@ -458,5 +459,19 @@
 
   "ERROR_CHOOSE_ARGUMENTS": "Besoin d'au moins 2 arguments séparés par une virgule.",
   "CHOOSE_TITLE": "{{emoji}} Parmi `{{items}}` je vais choisir...",
-  "CHOOSE_ITEM": "J'ai choisi : {{variable}}"
+  "CHOOSE_ITEM": "J'ai choisi : {{variable}}",
+
+  "HELP_WHOSTHAT_NAME": "Quel est?",
+  "HELP_WHOSTHAT_CATEGORY": "Pokémaniac",
+  "HELP_WHOSTHAT_DESCRIPTION": "Quel est ce Pokémon ?",
+  "HELP_WHOSTHAT_USAGE": "whosthat [--l=<langue>, --veryeasy | --easy | --medium | --hard | --veryhard]",
+
+  "WHOSTHAT_TITLE": "{{emoji}} Quel est ce Pokémon ? Langue : {{language}}; Difficulté : {{difficulty}}",
+  "GAME_START_IN": "Le jeu va démarrer dans :",
+  "GAME_END_IN": "Le jeu se termine dans :",
+  "GAME_END_NO_WINNER": "Le jeu s'est terminé sans gagnant.",
+  "GAME_END_WINNER": "Le gagnant est : {{user}}",
+  "WHOSTHAT_END_WINNER": "{{user}} a deviné {{pokemon}} en {{time}} !\nLangue: {{language}}\nDifficulté : {{difficulty}}",
+
+  "SECONDS": "secondes"
 }

@@ -18,6 +18,8 @@
     }
   ],
 
+  "LANGUAGES": ["FR", "EN"],
+
   "DEFAULTSETTINGS": {
     "prefix": "v.",
     "systemNotice": "true",

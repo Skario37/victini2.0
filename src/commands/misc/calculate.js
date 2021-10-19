@@ -1,10 +1,7 @@
-const { MessageEmbed } = require("discord.js");
 const { i18n } = require("../../utils/i18n");
-const Emoji = require("../../pictogram/emoji.json");
-const { getEmbedColor } = require("../../utils/Functions");
 const Math = require('mathjs');
 
-exports.run = (client, message, args, settings) => {
+exports.run = async (client, message, args, settings) => {
   if (args.length === 0) {
     let text = i18n("ERROR_CALC_ARGUMENTS", settings.language);
     text += "\n";

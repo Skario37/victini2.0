@@ -1,6 +1,6 @@
 const { i18n } = require("../../utils/i18n");
 
-exports.run = (client, message, args, settings) => {
+exports.run = async (client, message, args, settings) => {
   if (!message.guild.me.permissions.has(Permissions.FLAGS.MANAGE_NICKNAMES)) {
     return message.reply({content: i18n("NEED_MANAGE_NICKNAMES_PERMISSION", settings.language), allowedMentions: { repliedUser: false}})
       .then(msg => {
