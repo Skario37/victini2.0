@@ -113,7 +113,6 @@ exports.run = async (client, message, args, settings) => {
     whos.image = '/images/' + await getFileSprite(client, images[getRandomInt(0,images.length)])?.rows;
     if (!whos.image) return;
     whos.color = '#' + row.color;
-    whos.pokemon
 
     return whos;
   }

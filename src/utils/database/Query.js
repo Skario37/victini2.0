@@ -115,8 +115,9 @@ exports.getWhosThatForm = (client) => {
     INNER JOIN db_static_sprite_pokemon AS C ON B.sprite = C.id
     INNER JOIN db_static_pokemon_species AS D ON B.species = D.id
     INNER JOIN db_static_color AS E ON D.color = E.id
-  `).then(() => {
+  `).then(res => {
     log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatForm"));
+    return res;
   })
   .catch(err => {
     warn(i18n("DB_ERROR", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatForm " + err));
@@ -131,8 +132,9 @@ exports.getWhosThatPokemon = (client) => {
     INNER JOIN db_static_pokemon_species AS B ON A.species = B.id
     INNER JOIN db_static_sprite_pokemon AS C ON A.sprite = C.id
     INNER JOIN db_static_color AS D ON B.color = D.id
-  `).then(() => {
+  `).then(res => {
     log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatPokemon"));
+    return res;
   })
   .catch(err => {
     warn(i18n("DB_ERROR", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatPokemon " + err));
@@ -145,8 +147,9 @@ exports.getFileSprite = (client, id) => {
     SELECT file
     FROM db_static_sprite
     WHERE id = '${id}'
-  `).then(() => {
+  `).then(res => {
     log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getFileSprite"));
+    return res;
   })
   .catch(err => {
     warn(i18n("DB_ERROR", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getFileSprite " + err));
