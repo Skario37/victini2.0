@@ -61,7 +61,7 @@ exports.run = async (client, message, args, settings) => {
     const images = [];
     let row;
     if (difficulty === MEDIUM) {
-      const rows = await getWhosThatPokemon()?.rows;
+      const rows = await getWhosThatPokemon(client)?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       if (row.has_gender_difference) {
@@ -70,13 +70,13 @@ exports.run = async (client, message, args, settings) => {
       } else images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === VERYEASY) {
-      const rows = await getWhosThatPokemon()?.rows;
+      const rows = await getWhosThatPokemon(client)?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === EASY) {
-      const rows = await getWhosThatPokemon()?.rows;
+      const rows = await getWhosThatPokemon(client)?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       images.push(row.front_default);
