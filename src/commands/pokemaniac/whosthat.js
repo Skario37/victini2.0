@@ -61,7 +61,7 @@ exports.run = async (client, message, args, settings) => {
     const images = [];
     let row;
     if (difficulty === MEDIUM) {
-      const rows = await getWhosThatPokemon(client)?.rows;
+      const rows = (await getWhosThatPokemon(client))?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       if (row.has_gender_difference) {
@@ -70,19 +70,19 @@ exports.run = async (client, message, args, settings) => {
       } else images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === VERYEASY) {
-      const rows = await getWhosThatPokemon(client)?.rows;
+      const rows = (await getWhosThatPokemon(client))?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === EASY) {
-      const rows = await getWhosThatPokemon(client)?.rows;
+      const rows = (await getWhosThatPokemon(client))?.rows;
       if (!rows) return;
       row = rows[getRandomInt(0, rows.length)];
       images.push(row.front_default);
       whos.pokemon = row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === HARD) {
-      let rows = await getWhosThatForm(client)?.rows;
+      let rows = (await getWhosThatForm(client))?.rows;
       if (!rows) return;
       rows = rows.filter(filterForm);
       row = rows[getRandomInt(0, rows.length)];
@@ -96,7 +96,7 @@ exports.run = async (client, message, args, settings) => {
       row = specialPokemon(row);
       whos.pokemon = row[`form_${game_language.toLowerCase()}`] ?? row[`species_${game_language.toLowerCase()}`];
     } else if (difficulty === VERYHARD) {
-      let rows = await getWhosThatForm(client)?.rows;
+      let rows = (await getWhosThatForm(client))?.rows;
       if (!rows) return;
       rows = rows.filter(filterForm);
       row = rows[getRandomInt(0, rows.length)];
@@ -110,7 +110,7 @@ exports.run = async (client, message, args, settings) => {
       whos.pokemon = row[`form_${game_language.toLowerCase()}`] ?? row[`species_${game_language.toLowerCase()}`];
     }
   
-    whos.image = '/images/' + await getFileSprite(client, images[getRandomInt(0,images.length)])?.rows;
+    whos.image = __dirname + '/../../images/' + (await getFileSprite(client, images[getRandomInt(0,images.length)]))?.rows[0]?.file;
     if (!whos.image) return;
     whos.color = '#' + row.color;
 
