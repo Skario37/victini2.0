@@ -161,7 +161,7 @@ exports.run = async (client, message, args, settings) => {
     }, refreshTime);
 
 
-    const endMessage = (user, noTime, time) => {
+    const endMessage = async (user, noTime, time) => {
       client.off("messageCreate", onMessage);
       client.games.delete(message.channelId);
       clearInterval(interval);
