@@ -144,21 +144,23 @@ exports.run = async (client, message, args, settings) => {
 
     // Looping time
     let totalTime = 120000; // 2min
+    let timeLeft = totalTime;
     let refreshTime = 0; // start interval immediately
     const timestamp = Date.now();
     const interval = setInterval(() => {
       refreshTime = 10000;
-      if (totalTime > 0) {
+      if (timeLeft > 0) {
         embed.fields[0] = { 
           "name": i18n("GAME_END_IN", settings.language), 
-          "value": `${totalTime/1000} ${i18n("SECONDS", settings.language)}`
+          "value": `${timeLeft/1000} ${i18n("SECONDS", settings.language)}`
         };
-        totalTime -= refreshTime;
+        if (totalTime != timeLeft) msg.edit({embeds:[embed]});
+        else msg.edit({embeds:[embed], files: [attachment]});
+
+        timeLeft -= refreshTime;
       } else {
         endMessage(msg.author, true, undefined);
-        return;
       }
-      msg.edit({embeds:[embed], files: [attachment]});
     }, refreshTime);
 
 
@@ -196,6 +198,7 @@ exports.run = async (client, message, args, settings) => {
       });
       if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
+      msg.removeAttachments();
       msg.edit({embeds:[embed], files: [attachment]});
       msg.reply({embeds:[embed2]});
     }
@@ -219,7 +222,7 @@ exports.run = async (client, message, args, settings) => {
     }
 
     client.on("messageCreate", onMessage);
-  }, 30000);
+  }, 15000);
 }
 
 // Because some pokémon cant be compared to their original version and we DONT WANT them
