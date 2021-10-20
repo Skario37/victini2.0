@@ -18,6 +18,7 @@
   "DB_STARTING": "Starting database...",
   "DB_STARTED": "Complete!",
   "DB_FAIL_MESSAGE": "Something went wrong with database.",
+  "BUFFER_FAIL_MESSAGE": "Something went wrong with a buffer.",
 
   "EVENT_LOADED": "Event loaded: {{variable}}",
 

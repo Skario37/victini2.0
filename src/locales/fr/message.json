@@ -18,6 +18,7 @@
   "DB_STARTING": "Démarrage de la base de données...",
   "DB_STARTED": "Complet !",
   "DB_FAIL_MESSAGE": "Quelque chose s'est mal passé avec la base de données.",
+  "BUFFER_FAIL_MESSAGE": "Quelque chose s'est mal passé avec un tampon.",
 
   "EVENT_LOADED": "Événement chargé : {{variable}}",
 

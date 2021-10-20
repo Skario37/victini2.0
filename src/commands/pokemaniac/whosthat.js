@@ -5,6 +5,7 @@ const { getEmbedColor } = require("../../utils/Functions");
 const Emoji = require("../../pictogram/emoji.json");
 const { getWhosThatForm, getWhosThatPokemon, getFileSprite } = require("../../utils/database/Query");
 const { getRandomInt } = require("../../utils/Math");
+const error = require("../../utils/Logger").error;
 const Jimp = require('jimp');
 
 const VERYEASY = 0;
@@ -130,7 +131,12 @@ exports.run = async (client, message, args, settings) => {
     else if (difficulty === HARD) img.shadow();
     else if (difficulty === VERYHARD) img.shadow();
 
-    const attachment = new MessageAttachment(img, "pokemon.png");
+    let attachment;
+    img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+    	attachment = new MessageAttachment(buffer, "pokemon.png");
+      error(err);
+    });
+    if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
     embed.setImage("attachment://pokemon.png");
 
     // Looping time
