@@ -470,6 +470,7 @@
   "WHOSTHAT_TITLE": "{{emoji}} Quel est ce Pokémon ?",
   "WHOSTHAT_LANGUAGE": "Langue :",
   "WHOSTHAT_DIFFICULTY": "Difficulté :",
+  "GAME_END": "Le jeu est terminé !",
   "GAME_START_IN": "Le jeu va démarrer dans :",
   "GAME_END_IN": "Le jeu se termine dans :",
   "GAME_END_NO_WINNER": "Le jeu s'est terminé sans gagnant.",

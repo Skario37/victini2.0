@@ -170,13 +170,14 @@ exports.run = async (client, message, args, settings) => {
       client.off("messageCreate", onMessage);
       client.games.delete(message.channelId);
       clearInterval(interval);
+      const embed2 = embed;
       if (noTime) {
-        embed.fields[0] = { 
+        embed2.fields[0] = { 
           "name": i18n("GAME_END_NO_WINNER", settings.language), 
           "value": "\u200b"
         };
       } else {
-        embed.fields[0] = { 
+        embed2.fields[0] = { 
           "name": i18n("GAME_END_WINNER", settings.language).replace("{{user}}", user.username), 
           "value": i18n("WHOSTHAT_END_WINNER", settings.language)
             .replace("{{user}}", user.toString())
@@ -186,9 +187,14 @@ exports.run = async (client, message, args, settings) => {
             .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
         };
       }
+
+      embed.fields[0] = {
+        "name": i18n("GAME_END", settings.language), 
+        "value": "\u200b"
+      }
       embed.setImage("attachment://pokemon.png");
       msg.edit({embeds:[embed]})
-      msg.reply({embeds:[embed]})
+      msg.reply({embeds:[embed2]})
     }
 
     const onMessage = (message) => {
