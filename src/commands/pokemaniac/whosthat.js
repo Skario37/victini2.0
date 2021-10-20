@@ -245,8 +245,8 @@ function specialPokemon(pokemon) {
   const excludes = ["Arceus", "Genesect", "Vivillon", "Flabébé", "Floette", "Florges", "Polteageist", "Sinistea", "Alcremie"];
   for (const p of excludes) {
     if (pokemon.form_en?.includes(p)) {
-      pokemon.form_en = false;
-      pokemon.form_fr = false;
+      pokemon.form_en = undefined;
+      pokemon.form_fr = undefined;
     }
   }
 
