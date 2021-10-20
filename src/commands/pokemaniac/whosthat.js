@@ -117,9 +117,9 @@ exports.run = async (client, message, args, settings) => {
     return whos;
   }
   
-  const whos = getWhos();
+  let whos = getWhos();
   setTimeout(async () => {
-    await whos;
+    whos = await whos;
     if (!whos) return msg.edit({content: i18n("DB_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
     const embed = new MessageEmbed();
@@ -134,29 +134,31 @@ exports.run = async (client, message, args, settings) => {
     else if (difficulty === HARD) img_hide.color([{ apply: 'darken', params: [100] }]);
     else if (difficulty === VERYHARD) img_hide.color([{ apply: 'darken', params: [100] }]);
 
-    let attachment_hide;
+    let attachment;
     img_hide.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
-    	attachment_hide = new MessageAttachment(buffer, "pokemon_hide.png");
+    	attachment = new MessageAttachment(buffer, "pokemon.png");
       if (err) error(err);
     });
-    if (!attachment_hide) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
-    embed.setImage("attachment://pokemon_hide.png");
+    if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
+    embed.setImage("attachment://pokemon.png");
 
     // Looping time
     let totalTime = 120000; // 2min
-    const refreshTime = 10000; // 10s
+    let refreshTime = 0; // start interval immediately
     const timestamp = Date.now();
     const interval = setInterval(() => {
-      if ((totalTime -= refreshTime) > 0) {
+      refreshTime = 10000;
+      if (totalTime > 0) {
         embed.fields[0] = { 
           "name": i18n("GAME_END_IN", settings.language), 
           "value": `${totalTime/1000} ${i18n("SECONDS", settings.language)}`
         };
+        totalTime -= refreshTime;
       } else {
         endMessage(msg.author, true, undefined);
         return;
       }
-      msg.edit({embeds:[embed], files: [attachment_hide]});
+      msg.edit({embeds:[embed], files: [attachment]});
     }, refreshTime);
 
 
@@ -188,13 +190,11 @@ exports.run = async (client, message, args, settings) => {
       }
 
       const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
-      let attachment;
       img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
         attachment = new MessageAttachment(buffer, "pokemon.png");
         if (err) error(err);
       });
       if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
-      embed.setImage("attachment://pokemon.png");
 
       msg.edit({embeds:[embed], files: [attachment]});
       msg.reply({embeds:[embed2]});
@@ -219,7 +219,7 @@ exports.run = async (client, message, args, settings) => {
     }
 
     client.on("messageCreate", onMessage);
-  }, 15000);
+  }, 30000);
 }
 
 // Because some pokémon cant be compared to their original version and we DONT WANT them
