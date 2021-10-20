@@ -212,11 +212,11 @@ exports.run = async (client, message, args, settings) => {
       const time = Date.now() - timestamp;
       
       if (difficulty === MEDIUM) {
-        if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
+        if (message.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
       } else if (difficulty === VERYEASY) {
-        if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
+        if (message.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
       } else if (difficulty === EASY) {
-        if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
+        if (message.content.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
       } else if (difficulty === HARD) {
         if (message.content.toLowerCase() === whos.pokemon.toLowerCase()) return endMessage(message.author, false, time);
       } else if (difficulty === VERYHARD) {
