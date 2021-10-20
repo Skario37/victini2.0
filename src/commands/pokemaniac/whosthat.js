@@ -126,19 +126,27 @@ exports.run = async (client, message, args, settings) => {
     embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
     const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
-    if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
-    //else if (difficulty === VERYEASY) 
-    else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
-    else if (difficulty === HARD) img.color([{ apply: 'darken', params: [100] }]);
-    else if (difficulty === VERYHARD) img.color([{ apply: 'darken', params: [100] }]);
-
+    
     let attachment;
     img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
     	attachment = new MessageAttachment(buffer, "pokemon.png");
       if (err) error(err);
     });
     if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
-    embed.setImage("attachment://pokemon.png");
+
+    if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
+    //else if (difficulty === VERYEASY) 
+    else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === HARD) img.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === VERYHARD) img.color([{ apply: 'darken', params: [100] }]);
+
+    let attachment_hide;
+    img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+    	attachment_hide = new MessageAttachment(buffer, "pokemon_hide.png");
+      if (err) error(err);
+    });
+    if (!attachment_hide) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
+    embed.setImage("attachment://pokemon_hide.png");
 
     // Looping time
     let totalTime = 120000; // 2min
@@ -169,15 +177,17 @@ exports.run = async (client, message, args, settings) => {
         };
       } else {
         embed.fields[0] = { 
-          "name": i18n("GAME_END_WINNER", settings.language).replace("{{user}}", user), 
+          "name": i18n("GAME_END_WINNER", settings.language).replace("{{user}}", user.username), 
           "value": i18n("WHOSTHAT_END_WINNER", settings.language)
-            .replace("{{user}}", user)
+            .replace("{{user}}", user.toString())
             .replace("{{pokemon}}", whos.pokemon)
             .replace("{{time}}", Math.trunc(time/1000))
             .replace("{{language}}", game_language)
             .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
         };
       }
+      embed.setImage("attachment://pokemon.png");
+      msg.edit({embeds:[embed]})
       msg.reply({embeds:[embed]})
     }
 
@@ -193,7 +203,7 @@ exports.run = async (client, message, args, settings) => {
       } else if (difficulty === EASY) {
         if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
       } else if (difficulty === HARD) {
-        if (message.content.toLowerCase() === whos.pokemon.toLowerCase()) return endMessage(message.author.toString(), false, time);
+        if (message.content.toLowerCase() === whos.pokemon.toLowerCase()) return endMessage(message.author, false, time);
       } else if (difficulty === VERYHARD) {
         if (message.content === whos.pokemon) return endMessage(message.author, false, time);
       }
