@@ -125,23 +125,18 @@ exports.run = async (client, message, args, settings) => {
     embed.setColor(whos.color);
     embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
-    const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
+    const img_hide = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
     
-    let attachment;
-    img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
-    	attachment = new MessageAttachment(buffer, "pokemon.png");
-      if (err) error(err);
-    });
     if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
-    if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
+    if (difficulty === MEDIUM) img_hide.color([{ apply: 'darken', params: [100] }]);
     //else if (difficulty === VERYEASY) 
-    else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
-    else if (difficulty === HARD) img.color([{ apply: 'darken', params: [100] }]);
-    else if (difficulty === VERYHARD) img.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === EASY) img_hide.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === HARD) img_hide.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === VERYHARD) img_hide.color([{ apply: 'darken', params: [100] }]);
 
     let attachment_hide;
-    img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+    img_hide.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
     	attachment_hide = new MessageAttachment(buffer, "pokemon_hide.png");
       if (err) error(err);
     });
@@ -188,6 +183,12 @@ exports.run = async (client, message, args, settings) => {
         };
       }
 
+      const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
+      let attachment;
+      img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+        attachment = new MessageAttachment(buffer, "pokemon.png");
+        if (err) error(err);
+      });
       embed.fields[0] = {
         "name": i18n("GAME_END", settings.language), 
         "value": "\u200b"
