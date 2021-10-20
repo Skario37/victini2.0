@@ -117,8 +117,9 @@ exports.run = async (client, message, args, settings) => {
     return whos;
   }
   
+  const whos = getWhos();
   setTimeout(async () => {
-    const whos = await getWhos();
+    await whos;
     if (!whos) return msg.edit({content: i18n("DB_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
     const embed = new MessageEmbed();
@@ -155,7 +156,7 @@ exports.run = async (client, message, args, settings) => {
         endMessage(msg.author, true, undefined);
         return;
       }
-      msg.edit({embeds:[embed], files: [attachment]});
+      msg.edit({embeds:[embed], files: [attachment_hide]});
     }, refreshTime);
 
 
@@ -194,9 +195,9 @@ exports.run = async (client, message, args, settings) => {
       });
       if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
       embed.setImage("attachment://pokemon.png");
-      
-      msg.edit({embeds:[embed]})
-      msg.reply({embeds:[embed2]})
+
+      msg.edit({embeds:[embed], files: [attachment]});
+      msg.reply({embeds:[embed2]});
     }
 
     const onMessage = (message) => {
