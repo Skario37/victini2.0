@@ -237,6 +237,7 @@ function filterForm(form) {
   if (form.form_en?.startsWith("Totem")) return false; // cant compare
   if (form.form_en === "Rocabot Own Tempo") return false; // cant compare
   if (form.form_en === "Original Color Magearna") return false; // cant compare
+  return true;
 }
 
 // Because some pokémon cant be compared to their original version and we WANT them but with species name instead of form name
