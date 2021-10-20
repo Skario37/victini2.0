@@ -49,14 +49,12 @@ exports.run = async (client, message, args, settings) => {
     `15 ${i18n("SECONDS", settings.language)}`
   );
 
-  embed.addField(i18n("WHOSTHAT_LANGUAGE").replace("{{language}}", game_language));
-  embed.addField(i18n("WHOSTHAT_DIFFICULTY").replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language)));
-
+  embed.addField(i18n("WHOSTHAT_LANGUAGE"), game_language);
+  embed.addField(i18n("WHOSTHAT_DIFFICULTY"), i18n(`DIFFICULTY_${difficulty}`, settings.language));
 
   const msg = await message.reply({embeds:[embed]});
   if (client.games) client.games.set(message.channelId, true);
   else client.games = new Map();
-
 
   async function getWhos() {
     const whos = {};
@@ -162,6 +160,7 @@ exports.run = async (client, message, args, settings) => {
 
     const endMessage = (user, noTime, time) => {
       client.off("messageCreate", onMessage);
+      client.games.delete(message.channelId);
       clearInterval(interval);
       if (noTime) {
         embed.fields[0] = { 
@@ -174,7 +173,7 @@ exports.run = async (client, message, args, settings) => {
           "value": i18n("WHOSTHAT_END_WINNER", settings.language)
             .replace("{{user}}", user)
             .replace("{{pokemon}}", whos.pokemon)
-            .replace("{{time}}", time)
+            .replace("{{time}}", Math.trunc(time))
             .replace("{{language}}", game_language)
             .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
         };

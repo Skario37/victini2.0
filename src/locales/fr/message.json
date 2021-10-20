@@ -468,8 +468,8 @@
   "HELP_WHOSTHAT_USAGE": "whosthat [--l=<langue>, --veryeasy | --easy | --medium | --hard | --veryhard]",
 
   "WHOSTHAT_TITLE": "{{emoji}} Quel est ce Pokémon ?",
-  "WHOSTHAT_LANGUAGE": "Langue : {{language}}",
-  "WHOSTHAT_DIFFICULTY": "Difficulté : {{difficulty}}",
+  "WHOSTHAT_LANGUAGE": "Langue :",
+  "WHOSTHAT_DIFFICULTY": "Difficulté :",
   "GAME_START_IN": "Le jeu va démarrer dans :",
   "GAME_END_IN": "Le jeu se termine dans :",
   "GAME_END_NO_WINNER": "Le jeu s'est terminé sans gagnant.",
