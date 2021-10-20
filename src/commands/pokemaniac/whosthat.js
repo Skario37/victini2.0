@@ -42,14 +42,15 @@ exports.run = async (client, message, args, settings) => {
   embed.setTitle(
     i18n("WHOSTHAT_TITLE", settings.language)
       .replace("{{emoji}}", Emoji.WHOSTHAT.text)
-      .replace("{{language}}", game_language)
-      .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
   );
 
   embed.addField( 
     i18n("GAME_START_IN", settings.language), 
     `15 ${i18n("SECONDS", settings.language)}`
   );
+
+  embed.addField(i18n("WHOSTHAT_LANGUAGE").replace("{{language}}", game_language));
+  embed.addField(i18n("WHOSTHAT_DIFFICULTY").replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language)));
 
 
   const msg = await message.reply({embeds:[embed]});
@@ -122,7 +123,9 @@ exports.run = async (client, message, args, settings) => {
     const whos = await getWhos();
     if (!whos) return msg.edit({content: i18n("DB_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
+    const embed = new MessageEmbed();
     embed.setColor(whos.color);
+    embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
     const img = await Jimp.read(whos.image);
     if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
@@ -147,7 +150,7 @@ exports.run = async (client, message, args, settings) => {
       if ((totalTime -= refreshTime) > 0) {
         embed.fields[0] = { 
           "name": i18n("GAME_END_IN", settings.language), 
-          "value": `${totalTime} ${i18n("SECONDS", settings.language)}`
+          "value": `${totalTime/1000} ${i18n("SECONDS", settings.language)}`
         };
       } else {
         endMessage(msg.author, true, undefined);
@@ -182,7 +185,7 @@ exports.run = async (client, message, args, settings) => {
     const onMessage = (message) => {
       if (message.author.bot) return;
       if (message.content === "") return;
-      const time = timestamp - Date.now();
+      const time = Date.now() - timestamp;
       
       if (difficulty === MEDIUM) {
         if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
