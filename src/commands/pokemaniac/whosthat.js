@@ -145,10 +145,10 @@ exports.run = async (client, message, args, settings) => {
     // Looping time
     let totalTime = 120000; // 2min
     let timeLeft = totalTime;
-    let refreshTime = 0; // start interval immediately
+    let refreshTime = 10000;
     const timestamp = Date.now();
-    const interval = setInterval(() => {
-      refreshTime = 10000;
+    let interval = undefined;
+    const game_loop = () => {
       if (timeLeft > 0) {
         embed.fields[0] = { 
           "name": i18n("GAME_END_IN", settings.language), 
@@ -156,18 +156,19 @@ exports.run = async (client, message, args, settings) => {
         };
         if (totalTime != timeLeft) msg.edit({embeds:[embed]});
         else msg.edit({embeds:[embed], files: [attachment]});
-
         timeLeft -= refreshTime;
+        interval = setTimeout(game_loop, refreshTime);
       } else {
         endMessage(msg.author, true, undefined);
       }
-    }, refreshTime);
+    };
+    interval = setTimeout(game_loop, 0);
 
 
     const endMessage = async (user, noTime, time) => {
       client.off("messageCreate", onMessage);
       client.games.delete(message.channelId);
-      clearInterval(interval);
+      clearTimeout(interval);
       const embed2 = embed;
       if (noTime) {
         embed2.fields[0] = { 
