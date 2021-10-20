@@ -24,7 +24,7 @@ exports.run = async (client, message, args, settings) => {
       const l = args.splice(i,1)[0].split("=")[1].toUpperCase();
       if (Config.LANGUAGES.includes(l)) game_language = l;
     } else if (args[i] === "--ve" || args[i] === "--veryeasy") {
-      difficulty = EASY;
+      difficulty = VERYEASY;
     } else if (args[i] === "--e" || args[i] === "--easy") {
       difficulty = EASY;
     } else if (args[i] === "--m" || args[i] === "--medium") {
@@ -230,11 +230,11 @@ exports.run = async (client, message, args, settings) => {
 
 // Because some pokémon cant be compared to their original version and we DONT WANT them
 function filterForm(form) {
-  if (form.form_fr.startsWith("Pikachu Casquette")) return false; // cant compare
+  if (form.form_fr?.startsWith("Pikachu Casquette")) return false; // cant compare
   if (form.form_en === "Battle Bond Greninja") return false; // cant compare
   if (form.form_en === "Active Xerneas") return false; // cant compare
   if (form.species_en === "Zygarde") return false; // zygarde = zygarde 50% but we ask to tell the form not the species
-  if (form.form_en.startsWith("Totem")) return false; // cant compare
+  if (form.form_en?.startsWith("Totem")) return false; // cant compare
   if (form.form_en === "Rocabot Own Tempo") return false; // cant compare
   if (form.form_en === "Original Color Magearna") return false; // cant compare
 }

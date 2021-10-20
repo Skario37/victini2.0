@@ -132,6 +132,7 @@ exports.getWhosThatPokemon = (client) => {
     INNER JOIN db_static_pokemon_species AS B ON A.species = B.id
     INNER JOIN db_static_sprite_pokemon AS C ON A.sprite = C.id
     INNER JOIN db_static_color AS D ON B.color = D.id
+    WHERE A.is_default = true
   `).then(res => {
     log(i18n("DB_SUCCESS", Config.DEFAULTSETTINGS.language).replace("{{variable}}", "getWhosThatPokemon"));
     return res;
