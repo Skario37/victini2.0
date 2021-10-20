@@ -10,7 +10,7 @@ const Jimp = require('jimp');
 
 const VERYEASY = 0;
 const EASY = 1;
-const MEDIUM = 3;
+const MEDIUM = 2;
 const HARD = 3;
 const VERYHARD = 4;
 
@@ -125,16 +125,16 @@ exports.run = async (client, message, args, settings) => {
     embed.setColor(whos.color);
 
     const img = await Jimp.read(whos.image);
-    if (difficulty === MEDIUM) img.shadow();
+    if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
     //else if (difficulty === VERYEASY) 
-    else if (difficulty === EASY) img.shadow();
-    else if (difficulty === HARD) img.shadow();
-    else if (difficulty === VERYHARD) img.shadow();
+    else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === HARD) img.color([{ apply: 'darken', params: [100] }]);
+    else if (difficulty === VERYHARD) img.color([{ apply: 'darken', params: [100] }]);
 
     let attachment;
     img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
     	attachment = new MessageAttachment(buffer, "pokemon.png");
-      error(err);
+      if (err) error(err);
     });
     if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
     embed.setImage("attachment://pokemon.png");
@@ -179,7 +179,7 @@ exports.run = async (client, message, args, settings) => {
       msg.reply({embeds:[embed]})
     }
 
-    const onMessage = (client, message) => {
+    const onMessage = (message) => {
       if (message.author.bot) return;
       if (message.content === "") return;
       const time = timestamp - Date.now();
