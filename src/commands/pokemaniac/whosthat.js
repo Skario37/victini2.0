@@ -117,9 +117,9 @@ exports.run = async (client, message, args, settings) => {
     return whos;
   }
   
-  let whos = getWhos();
+  
   setTimeout(async () => {
-    whos = await whos;
+    const whos = await getWhos();
     if (!whos) return msg.edit({content: i18n("DB_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
     const embed = new MessageEmbed();
@@ -169,7 +169,9 @@ exports.run = async (client, message, args, settings) => {
       client.off("messageCreate", onMessage);
       client.games.delete(message.channelId);
       clearTimeout(interval);
-      const embed2 = embed;
+      const embed2 = new MessageEmbed();
+      embed2.setColor(whos.color);
+      embed2.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
       if (noTime) {
         embed2.fields[0] = { 
           "name": i18n("GAME_END_NO_WINNER", settings.language), 
@@ -188,7 +190,7 @@ exports.run = async (client, message, args, settings) => {
       }
 
       embed.fields[0] = {
-        "name": i18n("GAME_END", settings.language), 
+        "name": i18n("WHOSTHAT_END", settings.language).replace("{{pokemon}}", whos.pokemon), 
         "value": "\u200b"
       }
 
