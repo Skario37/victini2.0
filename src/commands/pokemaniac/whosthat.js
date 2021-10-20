@@ -126,8 +126,6 @@ exports.run = async (client, message, args, settings) => {
     embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
     const img_hide = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
-    
-    if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
 
     if (difficulty === MEDIUM) img_hide.color([{ apply: 'darken', params: [100] }]);
     //else if (difficulty === VERYEASY) 
@@ -183,17 +181,20 @@ exports.run = async (client, message, args, settings) => {
         };
       }
 
+      embed.fields[0] = {
+        "name": i18n("GAME_END", settings.language), 
+        "value": "\u200b"
+      }
+
       const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
       let attachment;
       img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
         attachment = new MessageAttachment(buffer, "pokemon.png");
         if (err) error(err);
       });
-      embed.fields[0] = {
-        "name": i18n("GAME_END", settings.language), 
-        "value": "\u200b"
-      }
+      if (!attachment) return msg.edit({content: i18n("BUFFER_FAIL_MESSAGE", settings.language), allowedMentions: { repliedUser: false }});
       embed.setImage("attachment://pokemon.png");
+      
       msg.edit({embeds:[embed]})
       msg.reply({embeds:[embed2]})
     }
