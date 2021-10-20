@@ -125,7 +125,7 @@ exports.run = async (client, message, args, settings) => {
     embed.setColor(whos.color);
     embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
-    const img = await Jimp.read(whos.image);
+    const img = await Jimp.read(whos.image.replace("icons", "previews"));
     if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
     //else if (difficulty === VERYEASY) 
     else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
@@ -169,11 +169,11 @@ exports.run = async (client, message, args, settings) => {
         };
       } else {
         embed.fields[0] = { 
-          "name": i18n("GAME_END_WINNER", settings.language).replace("{{user}}"), 
+          "name": i18n("GAME_END_WINNER", settings.language).replace("{{user}}", user), 
           "value": i18n("WHOSTHAT_END_WINNER", settings.language)
             .replace("{{user}}", user)
             .replace("{{pokemon}}", whos.pokemon)
-            .replace("{{time}}", Math.trunc(time))
+            .replace("{{time}}", Math.trunc(time/1000))
             .replace("{{language}}", game_language)
             .replace("{{difficulty}}", i18n(`DIFFICULTY_${difficulty}`, settings.language))
         };
@@ -193,7 +193,7 @@ exports.run = async (client, message, args, settings) => {
       } else if (difficulty === EASY) {
         if (message.content.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe") === whos.pokemon.replace(/\p{Diacritic}/gu, "").toLowerCase().replaceAll("œ", "oe")) return endMessage(message.author, false, time);
       } else if (difficulty === HARD) {
-        if (message.content.toLowerCase() === whos.pokemon.toLowerCase()) return endMessage(message.author, false, time);
+        if (message.content.toLowerCase() === whos.pokemon.toLowerCase()) return endMessage(message.author.toString(), false, time);
       } else if (difficulty === VERYHARD) {
         if (message.content === whos.pokemon) return endMessage(message.author, false, time);
       }
