@@ -244,30 +244,30 @@ function filterForm(form) {
 function specialPokemon(pokemon) {
   const excludes = ["Arceus", "Genesect", "Vivillon", "Flabébé", "Floette", "Florges", "Polteageist", "Sinistea", "Alcremie"];
   for (const p of excludes) {
-    if (pokemon.form_en.includes(p)) {
+    if (pokemon.form_en?.includes(p)) {
       pokemon.form_en = false;
       pokemon.form_fr = false;
     }
   }
 
   // Special in special... yeah
-  if (pokemon.form_en.includes("Meteor Minior")) {
+  if (pokemon.form_en?.includes("Meteor Minior")) {
     pokemon.form_en = "Meteor Minior";
     pokemon.form_fr = "Météno Météor";
   } 
-  if (pokemon.form_en.includes("Core Minior")) {
+  if (pokemon.form_en?.includes("Core Minior")) {
     pokemon.form_en = "Core Minior";
     pokemon.form_fr = "Météno Noyau";
   } 
-  if (pokemon.form_en.includes("Toxtricity") && pokemon.form_en.includes("Gigantamax")) {
+  if (pokemon.form_en?.includes("Toxtricity") && pokemon.form_en?.includes("Gigantamax")) {
     pokemon.form_en = "Gigantamax Toxtricity";
     pokemon.form_fr = "Salarsen Gigamax";
   }
-  if (pokemon.form_en.includes("Gigantamax Flapple")) { 
+  if (pokemon.form_en?.includes("Gigantamax Flapple")) { 
     pokemon.second_form_en = "Gigantamax Appletun";
     pokemon.second_form_fr = "Dratatin Gigamax";
   } 
-  if (pokemon.form_en.includes("Gigantamax Appletun")) { 
+  if (pokemon.form_en?.includes("Gigantamax Appletun")) { 
     pokemon.second_form_en = "Gigantamax Flapple";
     pokemon.second_form_fr = "Flapple Gigamax"
   }
