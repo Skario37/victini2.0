@@ -125,7 +125,7 @@ exports.run = async (client, message, args, settings) => {
     embed.setColor(whos.color);
     embed.setTitle(i18n("WHOSTHAT_TITLE", settings.language).replace("{{emoji}}", Emoji.WHOSTHAT.text));
 
-    const img = await Jimp.read(whos.image.replace("icons", "previews"));
+    const img = await Jimp.read(whos.image.replace("icons", "previews").replace("poke_icon", "poke_capture"));
     if (difficulty === MEDIUM) img.color([{ apply: 'darken', params: [100] }]);
     //else if (difficulty === VERYEASY) 
     else if (difficulty === EASY) img.color([{ apply: 'darken', params: [100] }]);
